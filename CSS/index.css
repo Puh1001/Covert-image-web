@@ -5,6 +5,10 @@ body{
     font-family: 'League Spartan', sans-serif;
     background-color: black;
 }
+img,div,section{ width: 100%;}
+.flexbox{
+    display: flex;
+}
 
 header{
     background-color: pink;
@@ -66,8 +70,20 @@ main{
             }
 
 footer{
-    background-color: blue;
+    background-color: rgb(53, 49, 49);
+    color: white;
     width: 100%;
-    height: 500px;
+    height: 150px;
+    border-top: 3px solid white;
 }
-
+footer .container{
+    max-width: 1130px;
+    margin: 0 auto;
+}
+footer .container .about-us .contact{
+    max-width: 48%;
+}
+footer .container .about-us ul li{
+    list-style-type: none;
+    line-height: 1.5;
+}
