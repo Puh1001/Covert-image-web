@@ -10,6 +10,9 @@ body{
 .flexBox{
     display: flex;
 }
+div{
+    width: 100%;
+}
 
 header{
     width: 100%;
@@ -146,3 +149,16 @@ main{
         height: 1000px;
         background-color: aqua;
     }
+footer{
+    background-color: rgb(63, 54, 54);
+    color: white;
+    height: 150px;
+    border-top: 4px solid rgb(222, 233, 124);
+}
+footer .container{
+    max-width: 1130px;
+    margin: 0 auto;
+}
+.about-us{
+    max-width: 50%;
+}
