@@ -5,10 +5,6 @@ body{
     font-family: 'League Spartan', sans-serif;
     background-color: black;
 }
-img,div,section{ width: 100%;}
-.flexbox{
-    display: flex;
-}
 
 header{
     background-color: pink;
@@ -25,20 +21,14 @@ header{
 
 
 main{
-    background-color: rgb(94, 172, 240);
+    width: 100%;
+    height: 1000px;
+    background-color: red;
 }
-    .main_title{
-        background-color: green;
-        width: 100%;
-        height: 300px;
-    }
-
-    .main_content{
-        background-color: aliceblue;
-        width: 95%;
-        height: fit-content;
-        padding-top: 50px;
-        margin: 10px auto;
+    .main_tool{
+        width: 20%;
+        height: 1000px;
+        background-color: rgb(92, 92, 92);
     }
         .content1{
             background-color: green;
@@ -48,26 +38,81 @@ main{
         .content2{
             background-color: aqua;
             height: 50px;
-            width: 100%;
-            margin-bottom: 50px;
-        }
-        .content3{
-            background-color: blue;
-            width: 100%;
-            height: fit-content;
-            display: flex;
+            /* background-color: aquamarine; */
             justify-content: space-between;
+            padding: 0px 20px;
+            box-sizing: border-box;
+            align-items: center;
         }
-            .content_optionSettign{
-                width: 48%;
-                height: 600px;
-                background-color: blanchedalmond;
+            .tool_1 img{
+                height: 80%;
             }
-            .content_Converter{
-                width: 48%;
-                height: 300px;
-                background-color: rgb(238, 160, 42);
+        .tool_2{
+            width: 100%;
+            border-bottom: 2px solid white;
+            box-sizing: border-box;
+            /* background-color: rgb(58, 58, 58); */
+        }
+            .tool_2_option{
+                width: 100%;
+                height: 50px;
+                /* background-color: blueviolet; */
+                align-items: center;
+                justify-content: space-around;
+                margin: 10px 0px;
+                box-sizing: border-box;
             }
+                .option_icon{
+                    width: 200px;
+                    height: 50px;
+                    align-items: center;
+                }
+                .option_icon img{
+                    height: 80%;
+                }
+                .tool_button{
+                    width: 60px;
+                    height: 30px;
+                    background-color: rgb(0, 0, 0);
+                    border-radius: 50px;
+                }
+                    .tool_button_circle{
+                        width: 30px;
+                        height: 30px;
+                        background-color: white;
+                        border-radius: 50%;
+                    }
+        .tool_3{
+            /* background-color: aqua; */
+            margin-top: 10px;
+            justify-content: center;
+        }
+            .tool_3_option{
+                /* background-color: red; */
+                width: 100%;
+                justify-content: space-between;
+                box-sizing: border-box;
+                padding: 0px 0px 0px 10px;
+            }
+            .tool_3_option .option_icon{
+                margin-right: 10px;
+                width: 50px;
+                box-sizing: border-box;
+            }
+                .option_icon p{
+                    margin-left: 20px;
+                }
+    .main_edit{
+        width: 40%;
+        height: 1000px !important;
+        background-color: blue;
+    }
+    .main_dropImg{
+        width: 40%;
+        height: 1000px;
+        background-color: aqua;
+    }
+
 
 footer{
     background-color: rgb(53, 49, 49);
