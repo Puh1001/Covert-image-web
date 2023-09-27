@@ -4,21 +4,60 @@ body{
     box-sizing: border-box;
     font-family: 'League Spartan', sans-serif;
     background-color: black;
+    color: white;
+}
+
+.flexBox{
+    display: flex;
 }
 
 header{
-    background-color: pink;
     width: 100%;
-    height: 50px;
+    height: 100px;
+    background-color: green;
+    justify-content: space-around;
 }
     .header_logo{
+        width: 20%;
         height: 100%;
-        margin-left: 20px;
     }
         .header_logo img{
-            height: 100%;
+           height: 100%;
         }
-
+    .header_category ul{
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+        .header_category ul li{
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+            .header_category ul li a{
+                text-decoration: none;
+                color: white;
+                padding: 43px 30px;
+            }
+            .header_category ul li a:hover{
+                background-color: orangered;
+            }
+    .header_userLogin{
+        align-items: center;
+    }
+        .header_userLogin a{
+            color: white;
+            text-decoration: none;
+            padding: 20px 40px;
+            margin-left: 20px;
+            background-color: black;
+        }
+        .header_userLogin a:first-child{
+            background-color: transparent;
+            border: 5px solid black;
+            padding: 15px;
+            box-sizing: border-box;
+        }
 
 main{
     width: 100%;
@@ -30,13 +69,8 @@ main{
         height: 1000px;
         background-color: rgb(92, 92, 92);
     }
-        .content1{
-            background-color: green;
+        .tool_1{
             width: 100%;
-            height: 300px;
-        }
-        .content2{
-            background-color: aqua;
             height: 50px;
             /* background-color: aquamarine; */
             justify-content: space-between;
@@ -113,22 +147,3 @@ main{
         background-color: aqua;
     }
 
-
-footer{
-    background-color: rgb(53, 49, 49);
-    color: white;
-    width: 100%;
-    height: 150px;
-    border-top: 3px solid white;
-}
-footer .container{
-    max-width: 1130px;
-    margin: 0 auto;
-}
-footer .container .about-us .contact{
-    max-width: 48%;
-}
-footer .container .about-us ul li{
-    list-style-type: none;
-    line-height: 1.5;
-}
