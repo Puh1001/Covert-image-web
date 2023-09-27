@@ -12,7 +12,7 @@
 <body>
     <header class="flexBox">
        <div class="header_logo">
-            <img src="../Pictures/Icon/Icon_Logo.png">
+            <a href=""><img src="../Pictures/Icon/Icon_Logo.png"></a>
        </div>
        <div class="header_category">
             <ul class="flexBox">
@@ -111,14 +111,44 @@
             </div>
         </div>
         <div class="main_edit">
-            
+            <!-- ô chọn option chuyển đổi ảnh  -->
+            <div class="option-box format-box">
+                <p>Chọn định dạng muốn chuyển đổi</p>
+                <div class="format-container">
+                    <select name="convert-type" id="convert">
+                        <option value="jpg">JPG</option>
+                        <option value="png">PNG</option>
+                        <option value="webp">WEBP</option>
+                        <option value="gif">GIF</option>
+                    </select>
+                </div>
+            </div>
+            <div class="option-box size-box"></div>
+            <div class="option-box transform-box"></div>
+            <div class="option-box watermark-box"></div>
+            <div class="option-box trim-box"></div>
+            <div class="option-box rename-box"></div>
+            <div class="option-box down-box"></div>
         </div>
         <div class="main_dropImg">
-
+            <input type="file">
         </div>
     </main>
     <footer>
-        
+        <div class="container flexBox">
+            <div class="about-us">
+                <p>VỀ CHÚNG TÔI</p>
+                <ul>
+                    <li>Nguyễn</li>
+                    <li>Nguyễn</li>
+                    <li>Nguyễn</li>
+                </ul>
+            </div>
+            <div class="contact">
+                <p>LIÊN HỆ</p>
+                <p>abc@gmail.com</p>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
