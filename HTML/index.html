@@ -8,8 +8,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Knewave&family=League+Spartan:wght@600;700&family=Montserrat:ital,wght@0,500;0,600;0,800;1,500;1,600;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../CSS/index.css">
+    <link rel="stylesheet" href="../CSS/toggleBtn.css">
 </head>
 <body>
+    
     <header class="flexBox">
        <div class="header_logo">
             <a href=""><img src="../Pictures/Icon/Icon_Logo.png"></a>
@@ -39,63 +41,49 @@
                         <img src="../Pictures/Icon/Icon_upLoad.png">
                         <p>Format</p>
                     </div>
-                    <div class="tool_button">
-                        <div class="tool_button_circle"></div>
-                    </div>
+                    <div class="toggleBtn " style="visibility: hidden;"></div>
                 </div>
                 <div class="tool_2_option flexBox">
                     <div class="option_icon flexBox">
                         <img src="../Pictures/Icon/Icon_upLoad.png">
                         <p>Size</p>
                     </div>
-                    <div class="tool_button">
-                        <div class="tool_button_circle"></div>
-                    </div>
+                    <div class="toggleBtn size-button" id=""></div>
                 </div>
                 <div class="tool_2_option flexBox">
                     <div class="option_icon flexBox">
                         <img src="../Pictures/Icon/Icon_upLoad.png">
                         <p>Transform</p>
                     </div>
-                    <div class="tool_button">
-                        <div class="tool_button_circle"></div>
-                    </div>
+                    <div class="toggleBtn trans-button"></div>
                 </div>
                 <div class="tool_2_option flexBox">
                     <div class="option_icon flexBox">
                         <img src="../Pictures/Icon/Icon_upLoad.png">
                         <p>Watermark</p>
                     </div>
-                    <div class="tool_button">
-                        <div class="tool_button_circle"></div>
-                    </div>
+                    <div class="toggleBtn add-button"></div>
                 </div>
                 <div class="tool_2_option flexBox">
                     <div class="option_icon flexBox">
                         <img src="../Pictures/Icon/Icon_upLoad.png">
                         <p>Trim</p>
                     </div>
-                    <div class="tool_button">
-                        <div class="tool_button_circle"></div>
-                    </div>
+                    <div class="toggleBtn trim-button"></div>
                 </div>
                 <div class="tool_2_option flexBox">
                     <div class="option_icon flexBox">
                         <img src="../Pictures/Icon/Icon_upLoad.png">
                         <p>Rename</p>
                     </div>               
-                    <div class="tool_button">
-                        <div class="tool_button_circle"></div>
-                    </div>
+                    <div class="toggleBtn rename-button"></div>
                 </div>
                 <div class="tool_2_option flexBox">
                     <div class="option_icon flexBox">
                         <img src="../Pictures/Icon/Icon_upLoad.png">
                         <p>Download</p>
                     </div>
-                    <div class="tool_button">
-                        <div class="tool_button_circle"></div>
-                    </div>
+                    <div class="toggleBtn down-button"></div>
                 </div>
             </div>
             <div class="tool_3 flexBox">
@@ -112,7 +100,7 @@
         </div>
         <div class="main_edit">
             <!-- ô chọn option chuyển đổi ảnh  -->
-            <div class="option-box format-box">
+            <div class="option-box format-box" style="visibility: visible;">
                 <p>Chọn định dạng muốn chuyển đổi</p>
                 <div class="format-container">
                     <select name="convert-type" id="convert">
@@ -150,5 +138,6 @@
             </div>
         </div>
     </footer>
+    <script src="../JSEvent/toggleBtn.js"></script>
 </body>
 </html>

@@ -1,0 +1,69 @@
+.toggleBtn {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: #fff;
+    /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); */
+    cursor: pointer;
+    border-radius: 50px;
+}
+.toggleBtn::before{
+    content: "";
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    left: 1px;
+    background-color: rgb(9, 210, 233);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease-in-out;
+    
+}
+.size-button.active:before{
+    left: calc(100% - 28px - 1px);
+    background-color: #4070f4;
+}
+.size-box.show{
+    visibility: visible;
+}
+
+.trans-button.active::before{
+    left: calc(100% - 28px - 1px);
+    background-color: #4070f4;
+}
+.transform-box.show{
+    visibility: visible;
+}
+
+.add-button.active::before{
+    left: calc(100% - 28px - 1px);
+    background-color: #4070f4;
+}
+.watermark-box.show{
+    visibility: visible;
+}
+
+.trim-button.active::before{
+    left: calc(100% - 28px - 1px);
+    background-color: #4070f4;
+}
+.trim-box.show{
+    visibility: visible;
+}
+
+.rename-button.active::before{
+    left: calc(100% - 28px - 1px);
+    background-color: #4070f4;
+}
+.rename-box.show{
+    visibility: visible;
+}
+
+.down-button.active::before{
+    left: calc(100% - 28px - 1px);
+    background-color: #4070f4;
+}
+.down-box.show{
+    visibility: visible;
+}
