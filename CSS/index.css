@@ -22,7 +22,6 @@ div {
 header {
     width: 100%;
     height: 100px;
-    background-color: green;
     justify-content: space-between;
 }
 
@@ -89,13 +88,13 @@ main {
     width: 100%;
     height: 1000px;
     background-color: red;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .main_tool {
     width: 20%;
     height: 1000px;
-    background-color: rgb(92, 92, 92);
+    background-color: rgb(37, 37, 37);
 }
 
 .tool_1 {
@@ -166,19 +165,20 @@ main {
 .main_edit {
     width: 40%;
     height: 1000px !important;
-    background-color: blue;
+    background-color: rgb(255, 253, 253) !important;
     overflow-y: scroll;
 }
 
 .main_dropImg {
     width: 40%;
     height: 1000px;
-    background-color: aqua;
+    background-color: rgb(255, 255, 255) !important;
+    padding-top: 20px;
 }
 
 /* css main edit  */
 .main_edit .option-box {
-    background-color: red;
+    background-color: #1DE0DA;
     max-width: 95%;
     height: 15vh;
     margin: 0 auto;
@@ -202,15 +202,15 @@ main {
     height: 30px;
     font-weight: bold;
     color: white;
-    background-color: pink;
+    background-color: rgb(41, 41, 41);
 }
 
 /* css footer  */
 footer {
-    background-color: rgb(63, 54, 54);
+    background: linear-gradient(to right, #1b86c9,#32b3ae);
     color: white;
     height: 150px;
-    border-top: 4px solid rgb(222, 233, 124);
+    border-top: 4px solid #F5FCCD;
 }
 
 footer .container {
@@ -249,11 +249,10 @@ body {
 header {
     width: 100%;
     height: 100px;
-    background-color: green;
+    /* background-color: #1DE0DA; */
+    background: linear-gradient(to right, #1DE0DA, #2189c9);
     justify-content: space-around;
     height: 100px;
-    background-color: green;
-    justify-content: space-around;
 }
 
 .header_logo {
@@ -279,12 +278,6 @@ header {
     align-items: center;
 }
 
-.header_category ul li a {
-    text-decoration: none;
-    color: white;
-    padding: 43px 30px;
-}
-
 .header_category ul li a:hover {
     background-color: orangered;
 }
@@ -294,7 +287,7 @@ header {
 }
 
 .header_userLogin a {
-    color: white;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     padding: 20px 40px;
     margin-left: 20px;
@@ -312,22 +305,27 @@ header {
     height: 100%;
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
 }
 
 .header_category ul li {
     list-style: none;
     display: flex;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .header_category ul li a {
     text-decoration: none;
-    color: white;
-    padding: 43px 30px;
+    color: rgb(255, 255, 255);
+    padding: 40px 30px;
+    box-sizing: border-box;
+    font-size: 1.4rem;
+    text-transform: uppercase;
 }
 
 .header_category ul li a:hover {
-    background-color: orangered;
+    background-color: rgb(41, 41, 41);
 }
 
 .header_userLogin {
@@ -347,18 +345,13 @@ header {
     border: 5px solid black;
     padding: 15px;
     box-sizing: border-box;
+    color: black;
 }
 
 main {
     width: 100%;
     height: 1000px;
-    background-color: red;
-}
-
-.main_tool {
-    width: 20%;
-    height: 1000px;
-    background-color: rgb(92, 92, 92);
+    /* background-color: red; */
 }
 
 .tool_1 {
@@ -409,7 +402,7 @@ main {
     border-radius: 50px;
 }
 
-.tool_button_circle {
+.tool_button_circle{
     width: 30px;
     height: 30px;
     background-color: white;
@@ -443,20 +436,19 @@ main {
 .main_edit {
     width: 40%;
     height: 1000px !important;
-    background-color: blue;
 }
 
 .main_dropImg {
     width: 40%;
     height: 1000px;
-    background-color: aqua;
+    border-left: 5px solid rgba(0, 0, 0, 0.457);
 }
 /* Styling upload image */
 
 .main_dropImg {
     margin: auto;
 }
- .main_dropImg > h2 {
+.main_dropImg > h2 {
 	 font-family: "Roboto", sans-serif;
 	 font-size: 26px;
 	 line-height: 1;
