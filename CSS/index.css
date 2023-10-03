@@ -677,3 +677,33 @@ footer {
         opacity: 1;
     }
 }
+
+
+/* mouse */
+.mouse{
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(23, 191, 203, 0.45); 
+    border-radius: 20px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    transform: translate(-50%, -50%) rotateZ(45deg);
+    z-index: 200;
+    transition: 0.05s;
+    pointer-events: none;
+    background-color: transparent;
+}
+.mousePoint{
+    width: 10px;
+    height: 10px;
+    background-color: #0ab9c2a4;
+    border-radius: 50%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    transform: translate(-50%, -50%) rotateZ(45deg);
+    z-index: 100;
+    transition: 0.001s;
+    pointer-events: none;
+}
