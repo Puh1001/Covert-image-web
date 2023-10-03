@@ -10,6 +10,16 @@
 body {
     color: white;
 }
+body::-webkit-scrollbar {
+    width: 15px;
+}
+body::-webkit-scrollbar-track {
+    background: rgb(248, 247, 247);
+}
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(27, 208, 166);
+    border-radius: 20px;
+}
 
 .flexBox {
     display: flex;
@@ -167,12 +177,24 @@ main {
     height: 1000px !important;
     background-color: rgb(255, 253, 253) !important;
     overflow-y: scroll;
+    scrollbar-color: pink red;
+}
+.main_edit::-webkit-scrollbar {
+    width: 15px;
+}
+.main_edit::-webkit-scrollbar-track {
+    background: rgb(248, 247, 247);
+}
+
+.main_edit::-webkit-scrollbar-thumb {
+    background-color: rgb(27, 184, 208);
+    border-radius: 20px;
 }
 
 .main_dropImg {
     width: 40%;
     height: 1000px;
-    background-color: rgb(255, 255, 255) !important;
+    background-color: rgb(231, 229, 229) !important;
     padding-top: 20px;
 }
 
@@ -203,47 +225,6 @@ main {
     font-weight: bold;
     color: white;
     background-color: rgb(41, 41, 41);
-}
-
-/* css footer  */
-footer {
-    background: linear-gradient(to right, #1b86c9,#32b3ae);
-    color: white;
-    height: 150px;
-    border-top: 4px solid #F5FCCD;
-}
-
-footer .container {
-    padding-top: 1rem;
-}
-
-.about-us {
-    max-width: 50%;
-    margin-left: 20%;
-}
-
-.about-us,
-.contact {
-    line-height: 2rem;
-}
-
-.about-us ul {
-    list-style-position: inside;
-    line-height: 1.5rem;
-
-}
-
-body {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: 'League Spartan', sans-serif;
-    background-color: black;
-    color: white;
-}
-
-.flexBox {
-    display: flex;
 }
 
 header {
@@ -586,4 +567,58 @@ main {
 	 border-color: #454cad;
 	 cursor: pointer;
 }
- 
+
+
+/* css footer  */
+footer {
+    background: linear-gradient(to right, #1b86c9,#32b3ae);
+    color: white;
+    height: fit-content;
+    border-top: 4px solid #F5FCCD;
+}
+    .footet_content_2{
+        background-color: #5f6982;
+        height: 50px;
+        font-size: 1.5rem;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 100px;
+    }
+        .footet_content_2 a{
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .footet_content_2 a:hover{
+            color: #03e9f5;
+        }
+    .footer_content_1{
+        padding: 50px 100px 50px 100px;
+        justify-content: space-between;
+    }
+        .footer_content_logo{
+            width: 30%;
+        }
+            .footer_content_logo img{
+                width: 100%;
+            }
+            .footer_content_logo p{
+                text-align: justify;
+            }
+        .footer_content_contart{
+            width: fit-content;
+            padding-top: 25px;
+        }
+            .footer_content_contart img{
+                width: 80px;
+            }
+        .footer_content_member{
+            width: fit-content;
+            margin-top: 25px;
+        }
+            .footer_content_member h1{
+                margin-bottom: 20px;
+            }
+            .footer_content_member ul li{
+                list-style-position: inside;
+                font-size: 1.5rem;
+            }
