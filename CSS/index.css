@@ -441,6 +441,20 @@ main {
 	 font-size: 18px;
 	 color: #5f6982; 
 }
+    .tutorial{
+        width: 80%;
+        overflow: hidden;
+        margin: 0px auto;
+    }
+    .tutorial video{
+        width: 100%;
+        border-radius: 20px;
+    }
+    .tutorial h1{
+        color: rgb(0, 0, 0);
+        font-size: 3rem;
+        margin-top: 70px;
+    }
  .uploader {
 	 display: block;
 	 clear: both;
