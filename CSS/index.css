@@ -622,3 +622,58 @@ footer {
                 list-style-position: inside;
                 font-size: 1.5rem;
             }
+
+
+/* loading */
+.loading{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+    background: repeating-linear-gradient(to bottom, rgb(35, 202, 185),rgb(29, 161, 218));
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+}
+    .loading img{
+        animation: nhapnhay 1.5s infinite;
+        transition: 3s;
+    }
+
+@keyframes nhapnhay {
+    0%{
+        opacity: 1;
+    }
+    10%{
+        opacity: 0.5;
+    }
+    20%{
+        opacity: 0.8;
+    }
+    30%{
+        opacity: 1;
+    }
+    40%{
+        opacity: 0.2;
+    }
+    50%{
+        opacity: 1;
+    }
+    60%{
+        opacity: 0.4;
+    }
+    70%{
+        opacity: 0.2;
+    }
+    80%{
+        opacity: 0.3;
+    }
+    90%{
+        opacity: 0.9;
+    }
+    100%{
+        opacity: 1;
+    }
+}
