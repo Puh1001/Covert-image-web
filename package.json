@@ -1,0 +1,23 @@
+{
+  "name": "covert-image-web",
+  "version": "1.0.0",
+  "description": "Trần Hùng",
+  "main": "Java_script/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Puh1001/Covert-image-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Puh1001/Covert-image-web/issues"
+  },
+  "homepage": "https://github.com/Puh1001/Covert-image-web#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.6.1"
+  }
+}
