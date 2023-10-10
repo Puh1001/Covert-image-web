@@ -1,8 +1,8 @@
 {
   "name": "covert-image-web",
   "version": "1.0.0",
-  "description": "Trần Hùng",
-  "main": "Java_script/index.js",
+  "description": "A basic covert-image web",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/Puh1001/Covert-image-web.git"
   },
-  "author": "",
+  "author": "Puh, Toai, Hoan",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Puh1001/Covert-image-web/issues"
