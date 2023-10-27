@@ -23,13 +23,17 @@
     }
     /* tam an thanh bar */
     main{
+        background-color: white !important;
         height: fit-content !important;
         flex-wrap: wrap-reverse;
+    }
+    .taskbar_Tablet{
+        display: none !important;
     }
     .main_tool{
         transform: scaleX(0);
         transition: 1s;
-        width: 100%;
+        width: 100vw !important;
         top:0px;
         z-index: 100;
         transform-origin: left;
@@ -71,9 +75,37 @@
     }
 }
 /* máy tính bảng */
-
+@media screen and (min-width:500px) and (max-width:1000px){
+    main{
+        background-color: white;
+    }
+    .taskbar{
+        display: none !important;
+    }
+    .main_dropImg{
+        width: 40vw;
+    }
+    .main_edit{
+        width: 55vw;
+    }
+    .main_tool{
+        transform-origin: left;
+        transition: 0.5s;
+        display: none;
+        z-index: 200;
+        opacity: 0.9;
+        height: 980px !important;
+    }
+    .taskbar_Tablet{
+        width: 5vw;
+        background-color: rgb(21, 21, 21);
+    }
+    .taskbar_Tablet img{
+        width: 100%;
+    }
+}
 /* máy tính */
-@media screen and (min-width:600px) {
+@media screen and (min-width:1001px) {
     .main_tool{
         transform: scaleX(1) !important;
         position: relative !important;
@@ -81,5 +113,17 @@
     }
     .taskbar{
         display: none !important;
+    }
+    .taskbar_Tablet{
+        display: none !important;
+    }
+    .main_dropImg{
+        width: 35vw;
+    }
+    .main_edit{
+        width: 40vw;
+    }
+    .main_tool{
+        width: 25vw !important;
     }
 }
