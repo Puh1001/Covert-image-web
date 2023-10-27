@@ -26,14 +26,18 @@
         flex-wrap: wrap-reverse;
     }
     .main_tool{
-        display: none;
+        transform: scaleX(0);
+        transition: 1s;
         width: 100%;
-        /* position: fixed; */
-        top: 10px;
+        top:0px;
         z-index: 100;
+        transform-origin: left;
+        height: 0px;
+        opacity: 0.9;
     }
     .main_edit{
-        display: none;
+        display: block;
+        padding-top: 30px;
     }
     .main_dropImg{
         height: fit-content;
@@ -60,5 +64,9 @@
     .tutorial h1:last-child{
         display: none;
     }
-    
+    /* taskbar */
+    .taskbar{
+        display: block;
+        background-color: black;
+    }
 }
