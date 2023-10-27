@@ -1,0 +1,64 @@
+@media screen and (max-width:500px) {
+    body{
+        width: 100vw;
+    }
+    .loading img{
+        width: 70%;
+    }   
+    .header_category, .header_userLogin{
+        display: none;
+    }
+        .Menu{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .Menu img{
+            height: 80%;
+        }
+    .header_logo{
+        width: 80%;
+    }
+    /* tam an thanh bar */
+    main{
+        height: fit-content !important;
+        flex-wrap: wrap-reverse;
+    }
+    .main_tool{
+        display: none;
+        width: 100%;
+        /* position: fixed; */
+        top: 10px;
+        z-index: 100;
+    }
+    .main_edit{
+        display: none;
+    }
+    .main_dropImg{
+        height: fit-content;
+        padding-bottom: 20px;
+    }
+    .main_edit, .main_dropImg{
+        width: 100%;
+    }
+    .footer_content_1{
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+    .footer_content_logo, .footer_content_contart, .footer_content_member{
+        width: 100%;
+    }
+    .footet_content_2{
+        font-size: 12px;
+        padding: 0px 30px;
+        padding-bottom: 15px;
+    }
+    .tutorial video, h1:first-child{
+        display: block;
+    }
+    .tutorial h1:last-child{
+        display: none;
+    }
+    
+}

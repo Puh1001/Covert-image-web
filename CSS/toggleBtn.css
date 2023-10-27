@@ -18,52 +18,49 @@
     top: 50%;
     transform: translateY(-50%);
     transition: all 0.3s ease-in-out;
-    
 }
 .size-button.active:before{
     left: calc(100% - 28px - 1px);
     background-color: #4070f4;
 }
 .size-box.show{
-    visibility: visible;
+    transform: scaleY(1);
 }
-
 .trans-button.active::before{
     left: calc(100% - 28px - 1px);
     background-color: #4070f4;
 }
 .transform-box.show{
-    visibility: visible;
+    transform: scaleY(1);
 }
-
 .add-button.active::before{
     left: calc(100% - 28px - 1px);
     background-color: #4070f4;
 }
 .watermark-box.show{
-    visibility: visible;
+    transform: scaleY(1);
 }
-
 .trim-button.active::before{
     left: calc(100% - 28px - 1px);
     background-color: #4070f4;
 }
 .trim-box.show{
-    visibility: visible;
+    transform: scaleY(1);
 }
-
 .rename-button.active::before{
     left: calc(100% - 28px - 1px);
     background-color: #4070f4;
 }
 .rename-box.show{
-    visibility: visible;
+    transform: scaleY(1);
 }
-
 .down-button.active::before{
     left: calc(100% - 28px - 1px);
     background-color: #4070f4;
 }
 .down-box.show{
-    visibility: visible;
+    transform: scaleY(1);
+}
+.hidden_box{
+    display: flex !important;
 }
