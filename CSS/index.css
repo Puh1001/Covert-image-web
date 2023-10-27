@@ -118,6 +118,7 @@ main {
 
 .tool_1 img {
     height: 80%;
+    pointer-events: none;
 }
 
 .tool_2 {
