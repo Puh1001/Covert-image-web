@@ -1,89 +1,72 @@
-import { Magick } from 'node-magickwand';
-import { fileURLToPath } from 'url';
-import * as path from 'path';
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+const path = require('path');
+console.log('Path module required');
+const fs = require('fs');
+console.log('FS module required');
+const jimp = require('jimp');
+console.log('Jimp module required');
+const multer = require('multer');
+console.log('Multer module required');
 
-// The famous ImageMagick wizard
-const wizard = path.join(path.dirname(fileURLToPath(import.meta.url)),
-  'node_modules', 'node-magickwand', 'test', 'data', 'wizard.png');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-// Read a new image (synchronously)
-let im = new Magick.Image(wizard);
-console.log(`${wizard}: ${im.size()}`);
+// Cấu hình multer
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        console.log('Setting destination for multer');
+        cb(null, 'uploads/')
+    },
+    filename: function (req, file, cb) {
+        console.log('Setting filename for multer');
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    }
+});
 
-// Read a new image (asynchronously)
-im = new Magick.Image;
-await im.readAsync(wizard);
-console.log(`${wizard}: ${await im.sizeAsync()}`);
+console.log('Multer storage configured');
 
-// Check if PNG support is built-in (it should be)
-const infoPNG = new Magick.CoderInfo('PNG');
-console.log(`PNG support: ${infoPNG && infoPNG.isReadable()}`);
+const upload = multer({ storage: storage });
+console.log('Upload configured');
 
-// Convert it to PNG
-await im.magickAsync('PNG');
+class ConvertController {
 
-// Rescale and rotate it
-await im.scaleAsync('160x212');
-await im.rotateAsync(60);
+    async uploadImage(req, res) {
+        console.log('Upload image function called');
+        // Đọc file ảnh từ đường dẫn tạm thời
+        const tempPath = req.file.path;
+        console.log(`Temp path: ${tempPath}`);
 
-// Display it and continue execution (requires X11)
-im.displayAsync();
+        // Lấy định dạng muốn chuyển từ form HTML
+        const format = req.body.format;
+        console.log(`Format to convert to: ${format}`);
 
-// displayAsync locks the previous image object
-// until it completes executions
-im = new Magick.Image(wizard);
+        // Chuyển đổi ảnh sang định dạng mong muốn
+        const image = await jimp.read(tempPath);
 
-// Make a copy and convert it to 256-color GIF
-const im256 = new Magick.Image(im);
-await im256.quantizeColorsAsync(256);
-await im256.quantizeAsync();
-await im256.magickAsync('GIF');
-console.log(`Image colors before/after conversion: ${im.totalColors()}/${im256.totalColors()}`);
+        // Ghi ảnh đã chuyển đổi vào một file mới
+        const outputPath = 'output/' + req.file.filename + '.' + format;
+        await image.writeAsync(outputPath);
 
-// Set compression/quality (JPEG/PNG)
-im.quality(98);
+        // Xóa file tạm thời
+        // fs.unlinkSync(tempPath);
+        console.log('Temp file deleted');
 
-// Write it to a binary blob and export it to Base64
-const blob = new Magick.Blob;
-await im.writeAsync(blob);
-const b64 = await blob.base64Async();
-console.log(`Base64 ${wizard} : ${b64.substring(0, 40)}...`);
+        // Tự động tải xuống hình ảnh đã chuyển đổi
+        res.download(outputPath, req.file.filename + '.' + format, function (err) {
+            if (!err) {
+                console.log('Image downloaded successfully!');
+            } else {
+                console.log('Download error:', err);
+            }
+        });
 
-// Import from Base64
-await blob.base64Async(b64);
-await im.readAsync(blob);
-console.log(`${blob}`);
+    };
 
-// Convert to RGBA (raw) and write it to a TypedArray
-await im.magickAsync('RGBA');
-// Conversion to Uint16 is automatic (it recognizes the type of the array)
-const pixels = new Uint16Array(im.size().width() * im.size().height() * 4);
-im.write(0, 0, im.size().width(), im.size().height(), 'RGBA', pixels);
-console.log(`Get pixel from ${wizard} 0 : 0 = ${pixels[0]}`);
+}
 
-// Access pixels directly
-const px = im.pixelColor(5, 5);
-console.log(`${wizard} 5 : 5 = ${px}`
-  + ` (RGBA=${px.pixelType() == Magick.Color.RGBAPixel})`
-  + ` red=${px.quantumRed()} alpha=${px.quantumAlpha()}`);
+console.log('ConvertController class defined');
 
-// Produce HTML hex color
-const rgb = new Magick.ColorRGB(px);
-console.log('HTML color: ', '#' + [rgb.red(), rgb.green(), rgb.blue(), rgb.alpha()]
-  .map((v) => Math.floor(v * 255).toString(16).padStart(2, '0')).join(''));
-
-// Parse HTML hex color
-const cl = new Magick.Color('#7f7f7f');
-console.log('Parse from HTML color to IM internal representation: ', cl.toString());
-
-// Apply blur
-const im2 = new Magick.Image(im);
-await im2.blurAsync(0.5);
-
-// Compositing (overlaying)
-const im3 = new Magick.Image(im.size(), new Magick.Color(0, 65535, 0, 32768));
-await im2.compositeAsync(im3, '0x0+0+0', IM.MagickCore.MultiplyCompositeOp);
-
-// Crop
-im.crop('10x8+5+5');
-console.log(`After cropping: ${wizard}: ${im.size()}`);
+module.exports = { upload, ConvertController: new ConvertController };
+console.log('Module exports defined');
