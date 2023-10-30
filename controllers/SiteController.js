@@ -11,13 +11,14 @@ class SiteController {
         res.download(file, (err) => {
             if (err) {
                 // Xử lý lỗi ở đây
-                console.log(`======= ${err}`);
+                console.log(err);
             } else {
                 // Chuyển hướng người dùng trở lại trang chủ sau khi tải xuống
-                res.redirect('/');
+                res.sendFile(path.join(__dirname, '..','HTML','index.html'));
             }
         });
     };
+        
     
     
 }

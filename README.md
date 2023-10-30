@@ -1,6 +1,6 @@
 # Covert-image-web 🐔
 
-#Professer
+#Teacher
     
     Trần Hùng
     
