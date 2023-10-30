@@ -18,7 +18,14 @@ function ekUpload() {
       fileDrag.addEventListener('dragleave', fileDragHover, false);
       fileDrag.addEventListener('drop', fileSelectHandler, false);
     }
+    // Submit button
+    submitButton.addEventListener('click', function (e) {
+      e.preventDefault();
+      uploadFile(fileSelect.files[0]);
+    }, false);
   }
+
+
 
   function fileDragHover(e) {
     var fileDrag = document.getElementById('file-drag');
@@ -39,7 +46,6 @@ function ekUpload() {
     // Process all File objects
     for (var i = 0, f; f = files[i]; i++) {
       parseFile(f);
-      uploadFile(f);
     }
   }
 
@@ -97,61 +103,23 @@ function ekUpload() {
 
   function uploadFile(file) {
     var input = document.querySelector('input[type="file"]')
+    var format = document.getElementById('convert').value;
+    var quality = document.getElementById('quality').value;
+    var width = document.getElementById('width').value;
+    var height = document.getElementById('height').value;
 
     var data = new FormData()
-    data.append('file', input.files[0])
+    data.append('file', input.files[0]);
+    data.append('format', format);
+    data.append('quality', quality);
+    data.append('width', width);
+    data.append('height', height);
 
     fetch('/uploads', {
       method: 'POST',
       body: data
     })
-
-    // return;
-
-    // var xhr = new XMLHttpRequest(),
-    //   fileInput = document.getElementById('class-roster-file'),
-    //   pBar = document.getElementById('file-progress'),
-    //   fileSizeLimit = 1024; // In MB
-    // if (xhr.upload) {
-    //   // Check if file is less than x MB
-    //   if (file.size != undefined) {
-    //     // Progress bar
-    //     pBar.style.display = 'inline';
-    //     xhr.upload.addEventListener('loadstart', setProgressMaxValue, false);
-    //     xhr.upload.addEventListener('progress', updateFileProgress, false);
-
-    //     // File received / failed
-    //     xhr.onreadystatechange = function(e) {
-    //       if (xhr.readyState == 4) {
-    //         // Everything is good!
-
-    //         // progress.className = (xhr.status == 200 ? "success" : "failure");
-    //         // document.location.reload(true);
-    //       }
-    //     };
-
-    //     // Start upload
-    //     xhr.open('POST', document.getElementById('file-upload-form').action, true);
-    //     xhr.setRequestHeader('X-File-Name', file.name);
-    //     xhr.setRequestHeader('X-File-Size', file.size);
-    //     // xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-    //     xhr.send(file);
-    //   } else {
-    //     output('Please upload a smaller file (< ' + fileSizeLimit + ' MB).');
-    //   }
-    // }
   }
-  document.querySelector('form').addEventListener('submit', (event) => {
-    event.preventDefault();
-    const format = document.querySelector('.selection_format').value;
-    fetch('/uploadImage', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ format }),
-    });
-  });
   // Check for the various File API support.
   if (window.File && window.FileList && window.FileReader) {
     Init();
@@ -160,3 +128,28 @@ function ekUpload() {
   }
 }
 ekUpload();
+
+
+// document.getElementById('submit-button').addEventListener('click', function() {
+//   // Lấy giá trị đã chọn từ các select elements
+//   var format = document.getElementById('convert').value;
+//   var quality = document.getElementById('quality').value;
+
+//   // Tạo một đối tượng FormData
+//   var formData = new FormData();
+//   formData.append('format', format);
+//   formData.append('quality', quality);
+
+//   // Sử dụng fetch để gửi FormData này đến máy chủ
+//   fetch('/uploads', {
+//       method: 'POST',
+//       body: formData
+//   })
+//   .then(response => response.json())
+//   .then(data => {
+//   })
+//   .catch(error => {
+//       console.error('Error:', error);
+//   });
+// });
+

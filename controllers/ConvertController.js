@@ -8,6 +8,7 @@ console.log('FS module required');
 const jimp = require('jimp');
 console.log('Jimp module required');
 const multer = require('multer');
+const Jimp = require('jimp');
 console.log('Multer module required');
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -34,33 +35,32 @@ class ConvertController {
 
     async uploadImage(req, res) {
         console.log('Upload image function called');
+        
+        // Lấy định dạng muốn chuyển từ form HTML
+        const format = req.body.format;
+        console.log(`Format to convert to: ${format}`);
+        const quality = req.body.quality;
+        console.log(`Format to convert to: ${quality}`);
+        const width = req.body.width;
+        const height = req.body.height;
+        console.log(`width ${width} is of type ${typeof width} and height ${height} is of type ${typeof height}`);
+        
         // Đọc file ảnh từ đường dẫn tạm thời
         const tempPath = req.file.path;
         console.log(`Temp path: ${tempPath}`);
 
-        // Lấy định dạng muốn chuyển từ form HTML
-        const format = req.body.format;
-        console.log(`Format to convert to: ${format}`);
-
-        // Chuyển đổi ảnh sang định dạng mong muốn
-        const image = await jimp.read(tempPath);
-
-        // Ghi ảnh đã chuyển đổi vào một file mới
-        const outputPath = 'output/' + req.file.filename + '.' + format;
-        await image.writeAsync(outputPath);
-
-        // Xóa file tạm thời
-        // fs.unlinkSync(tempPath);
-        console.log('Temp file deleted');
+        Jimp.read(tempPath)
+            .then((image) => {
+                return image
+                    .quality(parseInt(quality)) // set JPEG quality
+                    .resize(parseInt(width),parseInt(height))
+                    .write("E:/C C++/web/Covert-image-web/output/image." + format); // save
+            })
+            .catch((err) => {
+                console.error(err);
+            });
 
         // Tự động tải xuống hình ảnh đã chuyển đổi
-        res.download(outputPath, req.file.filename + '.' + format, function (err) {
-            if (!err) {
-                console.log('Image downloaded successfully!');
-            } else {
-                console.log('Download error:', err);
-            }
-        });
 
     };
 

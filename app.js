@@ -8,8 +8,8 @@ const route = require('./routes/index.route');
 
 app.use(morgan('combined'));
 
-// Sử dụng body-parser để phân tích dữ liệu từ form HTML
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use(express.json());
 

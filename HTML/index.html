@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,13 +8,16 @@
     <link rel="icon" href="../Pictures/Icon/Icon_logo_1.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Knewave&family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,500;0,600;0,800;1,500;1,600;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Knewave&family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,500;0,600;0,800;1,500;1,600;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../CSS/index.css">
     <link rel="stylesheet" type="text/css" href="../CSS/main_edit.css">
     <link rel="stylesheet" type="text/css" href="../CSS/toggleBtn.css">
     <link rel="stylesheet" type="text/css" href="../CSS/taskbar.css">
     <link rel="stylesheet" type="text/css" href="../CSS/reponsive.css">
 </head>
+
 <body>
     <div class="loading flexBox">
         <img src="../Pictures/Icon/Icon_Logo_2.png">
@@ -24,24 +28,24 @@
         <img src="../Pictures/Icon/Icon_menu.png">
     </div>
     <header class="flexBox">
-       <div class="header_logo">
+        <div class="header_logo">
             <a href=""><img src="../Pictures/Icon/Icon_Logo_2.png"></a>
-       </div>
-       <div class="header_category">
+        </div>
+        <div class="header_category">
             <ul class="flexBox">
                 <li><a href="">catergory</a></li>
                 <li><a href="">catergory</a></li>
                 <li><a href="">catergory</a></li>
                 <li><a href="">catergory</a></li>
             </ul>
-       </div>
-       <div class="header_userLogin flexBox">
+        </div>
+        <div class="header_userLogin flexBox">
             <a href="">SIGN UP</a>
             <a href="">LOGIN</a>
-       </div>
-       <div class="Menu">
+        </div>
+        <div class="Menu">
             <img src="../Pictures/Icon/Icon_menu.png">
-       </div>
+        </div>
     </header>
     <main class="flexBox">
         <div class="taskbar_Tablet">
@@ -92,7 +96,7 @@
                     <div class="option_icon flexBox">
                         <img src="../Pictures/Icon/Icon_rename.png">
                         <p>Rename</p>
-                    </div>               
+                    </div>
                     <div class="toggleBtn rename-button"></div>
                 </div>
                 <div class="tool_2_option flexBox">
@@ -133,8 +137,8 @@
                     <p>Quality</p>
                     <div class="format-container">
                         <select name="convert-quality" id="quality" class="selection_format">
-                            <option value="70">50%</option>
-                            <option value="70">60%</option>
+                            <option value="50">50%</option>
+                            <option value="60">60%</option>
                             <option value="70">70%</option>
                             <option value="80">80%</option>
                             <option value="90">90%</option>
@@ -147,30 +151,20 @@
                 <div class="format_option_box">
                     <p>Width</p>
                     <div class="format-container">
-                        <select name="convert-type" id="convert" class="selection_format">
-                            <option value="jpg">AUTO</option>
-                            <option value="png">PNG</option>
-                            <option value="webp">WEBP</option>
-                            <option value="gif">GIF</option>
-                        </select>
+                        <input type="number" id="width" name="width"><br>
                     </div>
                 </div>
                 <div class="format_option_box">
                     <p>Height</p>
                     <div class="format-container">
-                        <select name="convert-type" id="convert" class="selection_format">
-                            <option value="jpg">AUTO</option>
-                            <option value="png">PNG</option>
-                            <option value="webp">WEBP</option>
-                            <option value="gif">GIF</option>
-                        </select>
+                        <input type="number" id="height" name="height"><br>
                     </div>
                 </div>
                 <div class="format_option_box">
                     <p>Scale</p>
                     <div class="format-container">
-                        <select name="convert-type" id="convert" class="selection_format">
-                            <option value="jpg">AUTO</option>
+                        <select name="scale" id="scale-select" class="selection_format">
+                            <option value="auto">AUTO</option>
                             <option value="png">PNG</option>
                             <option value="webp">WEBP</option>
                             <option value="gif">GIF</option>
@@ -182,8 +176,8 @@
                 <div class="format_option_box">
                     <p>ROTATE</p>
                     <div class="format-container">
-                        <select name="convert-type" id="convert" class="selection_format">
-                            <option value="jpg">0 dec</option>
+                        <select name="rotate" id="rotate-select" class="selection_format">
+                            <option value="0">0 dec</option>
                             <option value="png">PNG</option>
                             <option value="webp">WEBP</option>
                             <option value="gif">GIF</option>
@@ -193,8 +187,8 @@
                 <div class="format_option_box">
                     <p>FLIP</p>
                     <div class="format-container">
-                        <select name="convert-type" id="convert" class="selection_format">
-                            <option value="jpg">NO</option>
+                        <select name="flip" id="flip-select" class="selection_format">
+                            <option value="no">NO</option>
                             <option value="png">PNG</option>
                             <option value="webp">WEBP</option>
                             <option value="gif">GIF</option>
@@ -210,23 +204,25 @@
         <div class="main_dropImg">
             <form id="file-upload-form" class="uploader">
                 <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
-              
+
                 <label for="file-upload" id="file-drag">
-                  <img id="file-image" src="#" alt="Preview" class="hidden">
-                  <div id="start">
-                    <i class="fa fa-download" aria-hidden="true"></i>
-                    <div>Select a file or drag here</div>
-                    <div id="notimage" class="hidden">Please select an image</div>
-                    <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
-                  </div>
-                  <div id="response" class="hidden">
-                    <div id="messages"></div>
-                    <progress class="progress" id="file-progress" value="0">
-                      <span>0</span>%
-                    </progress>
-                  </div>
+                    <img id="file-image" src="#" alt="Preview" class="hidden">
+                    <div id="start">
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <div>Select a file or drag here</div>
+                        <div id="notimage" class="hidden">Please select an image</div>
+                        <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+                    </div>
+                    <div id="response" class="hidden">
+                        <div id="messages"></div>
+                        <progress class="progress" id="file-progress" value="0">
+                            <span>0</span>%
+                        </progress>
+                    </div>
                 </label>
+                <button type="submit" id="submit-button">Convert</button>
             </form>
+                <button><a href="/dowload">dowload</a></button>
             <div class="tutorial">
                 <h1 align="center">TUTORIAL</h1>
                 <!-- <h1 align="center">EDIT</h1> -->
@@ -238,7 +234,11 @@
         <div class="footer_content_1 flexBox">
             <div class="footer_content_logo">
                 <img src="../Pictures/Icon/Icon_Logo_2.png">
-                <p>Convert Tool provides image file conversion services and a number of other formats. With a friendly and easy-to-use interface, Convert Tool helps users easily convert their files to the desired format in just a few clicks. Whether you need to convert PNG images to JPEG, or PDF files, Convert Tool can help you do it quickly and efficiently. Coming to Convert Tool, converting files is no longer a problem!</p>
+                <p>Convert Tool provides image file conversion services and a number of other formats. With a friendly
+                    and easy-to-use interface, Convert Tool helps users easily convert their files to the desired format
+                    in just a few clicks. Whether you need to convert PNG images to JPEG, or PDF files, Convert Tool can
+                    help you do it quickly and efficiently. Coming to Convert Tool, converting files is no longer a
+                    problem!</p>
             </div>
             <div class="footer_content_contart">
                 <h1>CONTACT US</h1>
@@ -261,4 +261,5 @@
     <script src="../JSEvent/PositionMouse.js"></script>
     <script src="../JSEvent/button_main_tool.js"></script>
 </body>
+
 </html>
