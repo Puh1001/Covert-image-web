@@ -35,7 +35,7 @@ class ConvertController {
 
     async uploadImage(req, res) {
         console.log('Upload image function called');
-        
+
         // Lấy định dạng muốn chuyển từ form HTML
         const format = req.body.format;
         console.log(`Format to convert to: ${format}`);
@@ -44,7 +44,7 @@ class ConvertController {
         const width = req.body.width;
         const height = req.body.height;
         console.log(`width ${width} is of type ${typeof width} and height ${height} is of type ${typeof height}`);
-        
+
         // Đọc file ảnh từ đường dẫn tạm thời
         const tempPath = req.file.path;
         console.log(`Temp path: ${tempPath}`);
@@ -53,8 +53,8 @@ class ConvertController {
             .then((image) => {
                 return image
                     .quality(parseInt(quality)) // set JPEG quality
-                    .resize(parseInt(width),parseInt(height))
-                    .write("E:/C C++/web/Covert-image-web/output/image." + format); // save
+                    .resize(parseInt(width), parseInt(height))
+                    .write(path.join(__dirname,"..", "output", `image.${format}`)); // save
             })
             .catch((err) => {
                 console.error(err);
