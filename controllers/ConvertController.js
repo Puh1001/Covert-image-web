@@ -10,7 +10,7 @@ console.log('Jimp module required');
 const multer = require('multer');
 const Jimp = require('jimp');
 console.log('Multer module required');
-const { uploadCloudinary } = require("../controllers/CloudController");
+const { uploadCloudinary, setImgPath } = require("../controllers/CloudController");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -58,6 +58,7 @@ class ConvertController {
                     .write(outputPath); // save
             })
             .then(() => {
+                setImgPath(outputPath);
                 uploadCloudinary(outputPath, format);
             })
             .catch((err) => {

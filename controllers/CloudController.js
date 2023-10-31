@@ -8,27 +8,47 @@ cloudinary.config({
   api_secret: '0FGctG9XOmUytL90vbSOT2W24gM' 
 });
 
-
 //hàm tải ảnh lên cloud
 let imgURL;
+
+// const imagePath = path.join(__dirname, "..", "output", "image.jpg");
 async function uploadCloudinary(filePath, format){
     await cloudinary.uploader.upload(filePath, {format: format}).then(result => {
         imgURL = result.secure_url;
         console.log(`upload complete: ${imgURL}`);
-        fs.unlink(filePath, (err) => {
-            if(err){
-                console.log(err);
-            }
-            else{
-                console.log("delete image in output folder");
-            }
-        })
     })
     .catch(error => {
         console.log(error);
     });
 }
+//hàm xóa ảnh sau khi user tải ảnh xong.
+function deleteImage(filePath){
+    fs.unlink(filePath, (err) => {
+        if(err){
+            console.log(err);
+        }
+        else{
+            console.log("delete image in output folder");
+        }
+    })
+}
+
+//hàm lưu về đường dẫn tới file ảnh
+let imgPath;
+function setImgPath(filePath){
+    imgPath = filePath;
+}
+//hàm trả về đường dẫn.
+function getImgPath(){
+    return imgPath;
+}
+// setImgPath(path.join(__dirname, "..", "output", "image.jpg"));
+// console.log(getImgPath());
+
 
 module.exports = {
     uploadCloudinary,
+    deleteImage,
+    getImgPath,
+    setImgPath
 }
