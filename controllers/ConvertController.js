@@ -10,6 +10,7 @@ console.log('Jimp module required');
 const multer = require('multer');
 const Jimp = require('jimp');
 console.log('Multer module required');
+const { uploadCloudinary } = require("../controllers/CloudController");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -48,22 +49,23 @@ class ConvertController {
         // Đọc file ảnh từ đường dẫn tạm thời
         const tempPath = req.file.path;
         console.log(`Temp path: ${tempPath}`);
-
+        const outputPath = path.join(__dirname, "..", "output", `image.${format}`);
         Jimp.read(tempPath)
             .then((image) => {
                 return image
                     .quality(parseInt(quality)) // set JPEG quality
                     .resize(parseInt(width), parseInt(height))
-                    .write(path.join(__dirname,"..", "output", `image.${format}`)); // save
+                    .write(outputPath); // save
+            })
+            .then(() => {
+                uploadCloudinary(outputPath, format);
             })
             .catch((err) => {
                 console.error(err);
             });
-
         // Tự động tải xuống hình ảnh đã chuyển đổi
-
+       
     };
-
 }
 
 console.log('ConvertController class defined');
