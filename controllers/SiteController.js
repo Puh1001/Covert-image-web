@@ -14,7 +14,7 @@ class SiteController {
                 console.log(err);
             } else {
                 // Chuyển hướng người dùng trở lại trang chủ sau khi tải xuống
-                res.sendFile(path.join(__dirname, '..','HTML','index.html'));
+                res.get(path.join(__dirname, '..','HTML','index.html'));
             }
         });
     };
