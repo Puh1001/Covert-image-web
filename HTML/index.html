@@ -16,12 +16,13 @@
     <link rel="stylesheet" type="text/css" href="../CSS/toggleBtn.css">
     <link rel="stylesheet" type="text/css" href="../CSS/taskbar.css">
     <link rel="stylesheet" type="text/css" href="../CSS/reponsive.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/button_convert.css">
 </head>
 
 <body>
-    <div class="loading flexBox">
+    <!-- <div class="loading flexBox">
         <img src="../Pictures/Icon/Icon_Logo_2.png">
-    </div>
+    </div> -->
     <div class="mouse"></div>
     <div class="mousePoint"></div>
     <div class="taskbar">
@@ -31,7 +32,7 @@
         <div class="header_logo">
             <a href=""><img src="../Pictures/Icon/Icon_Logo_2.png"></a>
         </div>
-        <div class="header_category">
+        <!-- <div class="header_category">
             <ul class="flexBox">
                 <li><a href="">catergory</a></li>
                 <li><a href="">catergory</a></li>
@@ -42,7 +43,7 @@
         <div class="header_userLogin flexBox">
             <a href="">SIGN UP</a>
             <a href="">LOGIN</a>
-        </div>
+        </div> -->
         <div class="Menu">
             <img src="../Pictures/Icon/Icon_menu.png">
         </div>
@@ -78,13 +79,13 @@
                     </div>
                     <div class="toggleBtn trans-button"></div>
                 </div>
-                <div class="tool_2_option flexBox">
+                <!-- <div class="tool_2_option flexBox">
                     <div class="option_icon flexBox">
                         <img src="../Pictures/Icon/Icon_watermark.png">
                         <p>Watermark</p>
                     </div>
                     <div class="toggleBtn add-button"></div>
-                </div>
+                </div> -->
                 <div class="tool_2_option flexBox">
                     <div class="option_icon flexBox">
                         <img src="../Pictures/Icon/Icon_trim.png">
@@ -102,7 +103,7 @@
                 <div class="tool_2_option flexBox">
                     <div class="option_icon flexBox">
                         <img src="../Pictures/Icon/Icon_download.png">
-                        <p>Download</p>
+                        <p>Auto Download</p>
                     </div>
                     <div class="toggleBtn down-button"></div>
                 </div>
@@ -151,13 +152,13 @@
                 <div class="format_option_box">
                     <p>Width</p>
                     <div class="format-container">
-                        <input type="number" id="width" name="width"><br>
+                        <input type="number" id="width" name="width" placeholder="AUTO"><br>
                     </div>
                 </div>
                 <div class="format_option_box">
                     <p>Height</p>
                     <div class="format-container">
-                        <input type="number" id="height" name="height"><br>
+                        <input type="number" id="height" name="height" placeholder="AUTO"><br>
                     </div>
                 </div>
                 <div class="format_option_box">
@@ -178,9 +179,9 @@
                     <div class="format-container">
                         <select name="rotate" id="rotate-select" class="selection_format">
                             <option value="0">0 dec</option>
-                            <option value="png">PNG</option>
-                            <option value="webp">WEBP</option>
-                            <option value="gif">GIF</option>
+                            <option value="png">90 dec</option>
+                            <option value="webp">180 dec</option>
+                            <option value="gif">270 dec</option>
                         </select>
                     </div>
                 </div>
@@ -189,17 +190,46 @@
                     <div class="format-container">
                         <select name="flip" id="flip-select" class="selection_format">
                             <option value="no">NO</option>
-                            <option value="png">PNG</option>
-                            <option value="webp">WEBP</option>
-                            <option value="gif">GIF</option>
+                            <option value="LEFT">LEFT</option>
+                            <option value="RIGHT">RIGHT</option>
+                            <option value="TOP">TOP</option>
+                            <option value="BOTTOM">BOTTOM</option>
                         </select>
                     </div>
                 </div>
             </div>
-            <div class="option-box watermark-box"></div>
-            <div class="option-box trim-box"></div>
-            <div class="option-box rename-box"></div>
-            <div class="option-box down-box"></div>
+            <div class="option-box trim-box flexBox">
+                <div class="setting_trim">
+                    <p>Setting Trim</p>
+                    <!-- <div class="toggleBtn proportion"></div> -->
+                </div>
+                <div class="cover_edit_trim_box">
+                    <p>Width</p>
+                    <div class="format-container">
+                        <input type="number" class="cover_edit_trim_box_element" placeholder="0">
+                    </div>
+                    <p>Height</p>
+                    <div class="format-container">
+                        <input type="number" class="cover_edit_trim_box_element" placeholder="0">
+                    </div>
+                    <p>PositionX </p>
+                    <div class="format-container">
+                        <input type="number" class="cover_edit_trim_box_element" placeholder="0">
+                    </div>
+                    <p>PositonY</p>
+                    <div class="format-container">
+                        <input type="number" class="cover_edit_trim_box_element" placeholder="0">
+                    </div>
+                </div>
+            </div>
+            <div class="option-box rename-box">
+                <div class="format_option_box">
+                    <p>Rename</p>
+                    <div class="format-container">
+                        <input type="text" id="rename_edit" placeholder="Rename"><br>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="main_dropImg">
             <form id="file-upload-form" class="uploader">
@@ -220,14 +250,31 @@
                         </progress>
                     </div>
                 </label>
-                <button type="submit" id="submit-button">Convert</button>
-            </form>
-                <button><a href="/dowload">dowload</a></button>
-            <div class="tutorial">
-                <h1 align="center">TUTORIAL</h1>
-                <!-- <h1 align="center">EDIT</h1> -->
-                <video src="../Video/Video_tutorial.mp4" autoplay muted loop></video>
+                <button type="submit" id="submit-button">CONVERT</button>
+            </form> 
+            <div class="show_download">
+                <div class="show_download_title">
+                    <h1>Conversion file !</h1>
+                </div>
+                <div class="list_convert flexBox">
+                    <div class="list_covert_img flexBox">
+                        <img src="../Pictures/Icon/Icon_watermark.png">
+                        <p>ABC.PNG</p>
+                    </div>
+                    <button><a href="/dowload">DOWNLOAD</a></button>
+                </div>
+                <div class="list_convert flexBox">
+                    <div class="list_covert_img flexBox">
+                        <img src="../Pictures/Icon/Icon_watermark.png">
+                        <p>ABC.PNG</p>
+                    </div>
+                    <button><a href="/dowload">DOWNLOAD</a></button>
+                </div>
             </div>
+           <!-- <div class="tutorial">
+                <h1 align="center">TUTORIAL</h1>
+                <video src="../Video/Video_tutorial.mp4" autoplay muted loop></video>
+            </div>  -->
         </div>
     </main>
     <footer>
@@ -257,7 +304,6 @@
     </footer>
     <script src="../JSEvent/toggleBtn.js"></script>
     <script src="../JSEvent/upload.js"></script>
-    <script src="../JSEvent/loading.js"></script>
     <script src="../JSEvent/PositionMouse.js"></script>
     <script src="../JSEvent/button_main_tool.js"></script>
 </body>

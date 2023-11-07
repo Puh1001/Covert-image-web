@@ -1,0 +1,57 @@
+#submit-button{
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to right, #1DE0DA, #2189c9);
+    color: white;
+    font-size: 20px;
+    margin: 20px auto;
+}
+
+.main_dropImg{
+    padding: 10px;
+}
+
+.show_download{
+    width: 100%;
+    border-radius: 10px;
+    background: #252525;
+    padding: 0px 10px;
+    /* border: 2px solid black; */
+    box-sizing: border-box;
+    height: 350px;
+    overflow-y: scroll;
+}
+.list_covert_img{
+    height: 100%;
+    align-items: center;
+}
+.list_covert_img p{
+    padding-left: 20px;
+}
+.list_covert_img img{
+    height: 100%;
+}
+.list_convert{
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+.list_convert button{
+    height: 30px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #fefefe;
+    border: none;
+}
+.list_convert button a{
+    text-decoration: none;
+    color: rgb(3, 3, 3);
+}
+.show_download_title>h1{
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    margin: 15px 0px;
+    width: 100%;
+    border-bottom: solid white 2px;
+}

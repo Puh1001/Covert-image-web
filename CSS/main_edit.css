@@ -22,3 +22,35 @@
     color: white;
     background-color: rgb(41, 41, 41);
 }
+
+.format-container input{
+    width: 90%;
+    box-sizing: border-box;
+    height: 35px;
+    padding-left: 10px;  
+    border-radius: 3px;  
+    font-weight: bold;
+    background-color: rgb(35, 32, 32);
+    color: white;
+    border: none;
+}
+#rename_edit{
+    width: 100%;
+}
+.trim-box{
+    height: fit-content !important;
+}
+.cover_edit_trim_box p{
+    margin-top: 10px;
+}
+.cover_edit_trim_box p:first-child{
+    margin-top: 0px;
+}
+.setting_trim{
+    width: 40%;
+}
+.cover_edit_trim_box_element{
+    background-color: rgb(39, 35, 35);
+    border: none;
+    color: white;
+}

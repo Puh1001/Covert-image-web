@@ -16,13 +16,11 @@ sizeBtn.addEventListener("click", () =>{
 sizeBtn.addEventListener('click', () => sizeBtn.classList.toggle('active'));
 //khai bao cho cac nut bam
 transBtn = document.querySelector('.trans-button'),
-addBtn = document.querySelector(".add-button"),
 trimBtn = document.querySelector(".trim-button"),
 renameBtn = document.querySelector(".rename-button"),
 downBtn = document.querySelector(".down-button");
 //khai bao box option
 transBox = document.querySelector(".transform-box"),
-addBox = document.querySelector(".watermark-box"),
 trimBox = document.querySelector(".trim-box"),
 renameBox = document.querySelector(".rename-box"),
 downBox = document.querySelector(".down-box");
@@ -42,20 +40,20 @@ transBtn.addEventListener("click", () =>{
 });
 transBtn.addEventListener('click', () => transBtn.classList.toggle('active'));
 // nut transform
-addBtn.addEventListener("click", () =>{
-    if (addBox.classList.contains("hidden_box")) {
-        addBox.classList.remove("show");
-        addBtn.style.pointerEvents = 'none';
-        setTimeout(() => {
-            addBox.classList.remove("hidden_box");
-            addBtn.style.pointerEvents = 'auto';
-        }, 600);
-    } else {
-        addBox.classList.add("hidden_box");
-        addBox.classList.add("show");
-    }
-})
-addBtn.addEventListener('click', () => addBtn.classList.toggle('active'));
+// addBtn.addEventListener("click", () =>{
+//     if (addBox.classList.contains("hidden_box")) {
+//         addBox.classList.remove("show");
+//         addBtn.style.pointerEvents = 'none';
+//         setTimeout(() => {
+//             addBox.classList.remove("hidden_box");
+//             addBtn.style.pointerEvents = 'auto';
+//         }, 600);
+//     } else {
+//         addBox.classList.add("hidden_box");
+//         addBox.classList.add("show");
+//     }
+// // })
+// addBtn.addEventListener('click', () => addBtn.classList.toggle('active'));
 // nut trim
 trimBtn.addEventListener("click", () =>{
     if (trimBox.classList.contains("hidden_box")) {

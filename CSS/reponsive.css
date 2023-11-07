@@ -109,7 +109,7 @@
     .main_tool{
         transform: scaleX(1) !important;
         position: relative !important;
-        height: 980px !important;
+        height: 700px !important;
     }
     .taskbar{
         display: none !important;
