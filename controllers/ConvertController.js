@@ -85,7 +85,7 @@ class ConvertController {
                     }
                 }
                 if (rotate !== undefined){
-                    image.rotate(parseInt(rotate));
+                    image.rotate(parseInt(rotate, false));
                 }
                 if (trimWidth !== undefined && trimHeight !== undefined && trimPositionX !== undefined && trimPositionY !== undefined) {
                     image.crop(parseInt(trimPositionX),parseInt(trimPositionY),parseInt(trimWidth), parseInt(trimHeight)); // resize image
