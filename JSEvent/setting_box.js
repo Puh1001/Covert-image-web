@@ -16,12 +16,17 @@ open_setting.addEventListener("click", function(){
 
 
 // dịch 
-function translatePage(language) {
-    var url = window.location.href;
-    if (language === 'vi') {
-        window.location.href = "http://translate.google.com/translate?sl=auto&tl=" + language + "&u=" + url;
-    } else {
-        location.reload();
+document.querySelector('select[name="convert-type"]').addEventListener('change', function(event) {
+    var language = event.target.value;
+    if (language === 'en') {
+        window.location.href = "https://translate.google.com/translate?sl=auto&tl=en&u=" + encodeURIComponent(window.location.href);
+    } else if (language === 'vi') {
+        window.location.href = "https://translate.google.com/translate?sl=auto&tl=vi&u=" + encodeURIComponent(window.location.href);
     }
-}
+});
+
+
+
+// theme
+
 
