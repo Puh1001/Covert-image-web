@@ -3,8 +3,10 @@
     width: 100vw;
     height: 100vh;
     position: fixed;
-    z-index: 300;
+    z-index: -1;
     justify-content: center;
+    opacity: 0;
+    transform: translateX(0);
     transition: 0.5s;
     /* transform-origin: right; */
 }
@@ -18,6 +20,9 @@
     .setting_box_edit h1{
         width: 100%;
         border-bottom: 2px solid black;
+    }
+    .edit_setting_selection{
+        width: 100%;
     }
 .out_setting{
     position: absolute;
@@ -44,6 +49,7 @@ h2{
     background: repeating-linear-gradient(to right, rgb(35, 202, 185),rgb(29, 161, 218));
     border: 2px solid black;
     margin-bottom: 30px;
+    cursor: pointer;
 }
     #main_theme{
         background: repeating-linear-gradient(to right, rgb(35, 202, 185),rgb(29, 161, 218));

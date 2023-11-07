@@ -25,7 +25,7 @@ links.forEach(function(links) {
         mouseMovePoint.style.transition = '0.001s';
     });
 }); 
-var button = document.querySelectorAll('.toggleBtn, .tool_3_option, .tool_1>img');
+var button = document.querySelectorAll('.toggleBtn, .tool_3_option, .tool_1>img, .Theme_format, .selection_format, .out_setting, .cover_edit_trim_box_element, .format-container, #submit-button, .uploader ');
 button.forEach(function(button) {
     button.addEventListener('mouseover', function() {
         mouseMovePoint.style.width = 60 + 'px';

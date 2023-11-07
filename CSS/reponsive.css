@@ -14,6 +14,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            display: none;
         }
         .Menu img{
             height: 80%;
@@ -73,6 +74,10 @@
         display: block;
         background-color: black;
     }
+    .setting_box_edit{
+        width: 100vw !important;
+        background-color: rgb(249, 249, 249) !important;
+    }
 }
 /* máy tính bảng */
 @media screen and (min-width:500px) and (max-width:1000px){
@@ -125,5 +130,8 @@
     }
     .main_tool{
         width: 25vw !important;
+    }
+    .setting_box_edit{
+        width: 40vw !important;
     }
 }
