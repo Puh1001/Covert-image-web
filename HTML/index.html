@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 
 <head>
     <meta charset="UTF-8">
@@ -17,12 +17,28 @@
     <link rel="stylesheet" type="text/css" href="../CSS/taskbar.css">
     <link rel="stylesheet" type="text/css" href="../CSS/reponsive.css">
     <link rel="stylesheet" type="text/css" href="../CSS/button_convert.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/setting_box.css">
 </head>
-
 <body>
-    <!-- <div class="loading flexBox">
-        <img src="../Pictures/Icon/Icon_Logo_2.png">
-    </div> -->
+    <div class="setting_box flexBox">
+        <div class="out_setting flexBox">
+            <img src="../Pictures/Icon/Icon_arrow.png">
+        </div>
+        <div class="setting_box_edit">
+            <h1>SETTING</h1>
+            <div class="edit_setting">
+                <h2>Language</h2>
+                <select name="convert-type" class="selection_format" onchange="translatePage(this.value)">
+                    <option value="en">English</option>
+                    <option value="vi">Tiếng Việt</option>
+                </select>
+                <h2>Theme</h2>
+                <div class="Theme_format" id="main_theme"></div>
+                <div class="Theme_format" id="black_theme"></div>
+                <div class="Theme_format" id="green_theme"></div>
+            </div>
+        </div>
+    </div>
     <div class="mouse"></div>
     <div class="mousePoint"></div>
     <div class="taskbar">
@@ -32,18 +48,6 @@
         <div class="header_logo">
             <a href=""><img src="../Pictures/Icon/Icon_Logo_2.png"></a>
         </div>
-        <!-- <div class="header_category">
-            <ul class="flexBox">
-                <li><a href="">catergory</a></li>
-                <li><a href="">catergory</a></li>
-                <li><a href="">catergory</a></li>
-                <li><a href="">catergory</a></li>
-            </ul>
-        </div>
-        <div class="header_userLogin flexBox">
-            <a href="">SIGN UP</a>
-            <a href="">LOGIN</a>
-        </div> -->
         <div class="Menu">
             <img src="../Pictures/Icon/Icon_menu.png">
         </div>
@@ -234,7 +238,6 @@
         <div class="main_dropImg">
             <form id="file-upload-form" class="uploader">
                 <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
-
                 <label for="file-upload" id="file-drag">
                     <img id="file-image" src="#" alt="Preview" class="hidden">
                     <div id="start">
@@ -271,10 +274,6 @@
                     <button><a href="/dowload">DOWNLOAD</a></button>
                 </div>
             </div>
-           <!-- <div class="tutorial">
-                <h1 align="center">TUTORIAL</h1>
-                <video src="../Video/Video_tutorial.mp4" autoplay muted loop></video>
-            </div>  -->
         </div>
     </main>
     <footer>
@@ -306,6 +305,7 @@
     <script src="../JSEvent/upload.js"></script>
     <script src="../JSEvent/PositionMouse.js"></script>
     <script src="../JSEvent/button_main_tool.js"></script>
+    <script src="../JSEvent/setting_box.js"></script>
 </body>
 
 </html>

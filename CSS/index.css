@@ -672,7 +672,7 @@ footer {
     top: 0px;
     left: 0px;
     transform: translate(-50%, -50%) rotateZ(45deg);
-    z-index: 200;
+    z-index: 500;
     transition: 0.05s;
     pointer-events: none;
     background-color: transparent;
@@ -686,7 +686,7 @@ footer {
     top: 0px;
     left: 0px;
     transform: translate(-50%, -50%) rotateZ(45deg);
-    z-index: 100;
+    z-index: 500;
     transition: 0.001s;
     pointer-events: none;
 }

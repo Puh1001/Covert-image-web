@@ -54,3 +54,7 @@
     border: none;
     color: white;
 }
+.tool_3_option:hover{
+    background-color: #24c6c1;
+    cursor: pointer;
+}

@@ -1,0 +1,57 @@
+.setting_box{
+    background-color: rgba(0, 0, 0, 0.653);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 300;
+    justify-content: center;
+    transition: 0.5s;
+    /* transform-origin: right; */
+}
+.setting_box_edit{
+    width: 40vw;
+    height: 100vh;
+    background-color: rgb(234, 234, 234);
+    color: black;
+    padding: 50px;
+}
+    .setting_box_edit h1{
+        width: 100%;
+        border-bottom: 2px solid black;
+    }
+.out_setting{
+    position: absolute;
+    background-color: rgb(15, 138, 205);
+    width: 50px;
+    height: 50px;
+    top: 2%;
+    right: 2%;
+    border-radius: 20%;
+    justify-content: center;
+    align-items: center;
+}
+.out_setting img{
+    width: 100%;
+}
+
+h2{
+    margin: 20px 0px;
+}
+
+.Theme_format{
+    width: 100%;
+    height: 50px;
+    background: repeating-linear-gradient(to right, rgb(35, 202, 185),rgb(29, 161, 218));
+    border: 2px solid black;
+    margin-bottom: 30px;
+}
+    #main_theme{
+        background: repeating-linear-gradient(to right, rgb(35, 202, 185),rgb(29, 161, 218));
+    }
+    #black_theme{
+        background: repeating-linear-gradient(to right, rgb(255, 255, 255),rgb(0, 0, 0));
+    }
+    #green_theme{
+        background: repeating-linear-gradient(to right, rgb(118, 231, 201),rgb(29, 218, 95));
+    }
+
