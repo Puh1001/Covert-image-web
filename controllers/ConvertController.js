@@ -45,7 +45,8 @@ class ConvertController {
 
         const width = req.body.width;
         const height = req.body.height;
-        console.log(`width ${width} is of type ${typeof width} and height ${height} is of type ${typeof height}`);
+        const scale = req.body.scale;
+        console.log(`width: ${width}, height: ${height}, scale: ${scale}`);
         
         const rotate = req.body.rotate;
         const flip = req.body.flip;
@@ -68,6 +69,9 @@ class ConvertController {
                 if (width !== undefined && height !== undefined) {
                     image.resize(parseInt(width), parseInt(height)); // resize image
                 }
+                if (scale !== undefined || scale === '1') {
+                    image.scale(parseInt(scale));
+                }
                 if (flip !== undefined || flip !== 'no'){
                     switch (flip) {
                         case 'horizontal':
@@ -88,7 +92,7 @@ class ConvertController {
                     image.rotate(parseInt(rotate, false));
                 }
                 if (trimWidth !== undefined && trimHeight !== undefined && trimPositionX !== undefined && trimPositionY !== undefined) {
-                    image.crop(parseInt(trimPositionX),parseInt(trimPositionY),parseInt(trimWidth), parseInt(trimHeight)); // resize image
+                    image.crop(parseInt(trimPositionX),parseInt(trimPositionY),parseInt(trimWidth), parseInt(trimHeight)); 
                 }
                 return image.write(outputPath); // save
             })

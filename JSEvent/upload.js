@@ -125,6 +125,7 @@ function uploadFile(file) {
 
   var width = document.getElementById('width').value;
   var height = document.getElementById('height').value;
+  var scale = document.getElementById('scale').value;
 
   var rotate = document.getElementById('rotate').value;
   var flip = document.getElementById('flip-select').value
@@ -147,6 +148,9 @@ function uploadFile(file) {
   }
   if (toggleStates.size) {
     data.append('height', height);
+  }
+  if (toggleStates.size) {
+    data.append('scale', scale);
   }
 
   if (toggleStates.trans) {
