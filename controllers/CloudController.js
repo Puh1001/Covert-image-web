@@ -32,7 +32,10 @@ function deleteImage(filePath){
         }
     })
 }
-
+//hàm remove background
+async function removeBackground(filePath){
+    
+}
 //hàm lưu về đường dẫn tới file ảnh
 let imgPath;
 function setImgPath(filePath){
@@ -42,9 +45,6 @@ function setImgPath(filePath){
 function getImgPath(){
     return imgPath;
 }
-// setImgPath(path.join(__dirname, "..", "output", "image.jpg"));
-// console.log(getImgPath());
-
 
 module.exports = {
     uploadCloudinary,
