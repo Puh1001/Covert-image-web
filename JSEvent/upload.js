@@ -100,26 +100,81 @@ function ekUpload() {
       pBar.value = e.loaded;
     }
   }
+// Tạo một đối tượng để lưu trạng thái của các nút toggle
+var toggleStates = {
+  size: false,
+  trans: false,
+  trim: false,
+  rename: false,
+  down: false
+};
 
-  function uploadFile(file) {
-    var input = document.querySelector('input[type="file"]')
-    var format = document.getElementById('convert').value;
-    var quality = document.getElementById('quality').value;
-    var width = document.getElementById('width').value;
-    var height = document.getElementById('height').value;
+// Cập nhật trạng thái của nút toggle khi nó được nhấn
+sizeBtn.addEventListener('click', () => toggleStates.size = !toggleStates.size);
+transBtn.addEventListener('click', () => toggleStates.trans = !toggleStates.trans);
+trimBtn.addEventListener('click', () => toggleStates.trim = !toggleStates.trim);
+renameBtn.addEventListener('click', () => toggleStates.rename = !toggleStates.rename);
+downBtn.addEventListener('click', () => toggleStates.down = !toggleStates.down);
 
-    var data = new FormData()
+// Kiểm tra trạng thái của nút toggle khi form được submit
+function uploadFile(file) {
+  var input = document.querySelector('input[type="file"]')
+
+  var format = document.getElementById('convert').value;
+  var quality = document.getElementById('quality').value;
+
+  var width = document.getElementById('width').value;
+  var height = document.getElementById('height').value;
+
+  var rotate = document.getElementById('rotate').value;
+  var flip = document.getElementById('flip-select').value
+
+  var trimWidth = document.getElementById('trimWidth').value;
+  var trimHeight = document.getElementById('trimHeight').value;
+  var trimPositionX = document.getElementById('trimPositionX').value;
+  var trimPositionY = document.getElementById('trimPositionY').value;
+
+
+  var data = new FormData()
+
+  // Chỉ thêm dữ liệu vào form nếu nút toggle tương ứng đang được bật
     data.append('file', input.files[0]);
     data.append('format', format);
     data.append('quality', quality);
-    data.append('width', width);
-    data.append('height', height);
 
-    fetch('/uploads', {
-      method: 'POST',
-      body: data
-    })
+  if (toggleStates.size) {
+    data.append('width', width);
   }
+  if (toggleStates.size) {
+    data.append('height', height);
+  }
+
+  if (toggleStates.trans) {
+    data.append('rotate', rotate);
+  }
+  if (toggleStates.trans) {
+    data.append('flip', flip);
+  }
+
+  if (toggleStates.trim) {
+    data.append('trimWidth', trimWidth);
+  }
+  if (toggleStates.trim) {
+    data.append('trimHeight', trimHeight);
+  }
+  if (toggleStates.trim) {
+    data.append('trimPositionX', trimPositionX);
+  }
+  if (toggleStates.trim) {
+    data.append('trimPositionY', trimPositionY);
+  }
+
+  fetch('/uploads', {
+    method: 'POST',
+    body: data
+  })
+}
+
   // Check for the various File API support.
   if (window.File && window.FileList && window.FileReader) {
     Init();
@@ -128,28 +183,3 @@ function ekUpload() {
   }
 }
 ekUpload();
-
-
-// document.getElementById('submit-button').addEventListener('click', function() {
-//   // Lấy giá trị đã chọn từ các select elements
-//   var format = document.getElementById('convert').value;
-//   var quality = document.getElementById('quality').value;
-
-//   // Tạo một đối tượng FormData
-//   var formData = new FormData();
-//   formData.append('format', format);
-//   formData.append('quality', quality);
-
-//   // Sử dụng fetch để gửi FormData này đến máy chủ
-//   fetch('/uploads', {
-//       method: 'POST',
-//       body: formData
-//   })
-//   .then(response => response.json())
-//   .then(data => {
-//   })
-//   .catch(error => {
-//       console.error('Error:', error);
-//   });
-// });
-

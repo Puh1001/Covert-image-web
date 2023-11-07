@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="../CSS/button_convert.css">
     <link rel="stylesheet" type="text/css" href="../CSS/setting_box.css">
 </head>
+
 <body>
     <div class="setting_box flexBox">
         <div class="out_setting flexBox">
@@ -174,12 +175,7 @@
                 <div class="format_option_box">
                     <p>ROTATE</p>
                     <div class="format-container">
-                        <select name="rotate" id="rotate-select" class="selection_format">
-                            <option value="0">0 dec</option>
-                            <option value="png">90 dec</option>
-                            <option value="webp">180 dec</option>
-                            <option value="gif">270 dec</option>
-                        </select>
+                        <input type="number" name="rotate" id="rotate" class="selection_format" value="0">
                     </div>
                 </div>
                 <div class="format_option_box">
@@ -187,10 +183,10 @@
                     <div class="format-container">
                         <select name="flip" id="flip-select" class="selection_format">
                             <option value="no">NO</option>
-                            <option value="LEFT">LEFT</option>
-                            <option value="RIGHT">RIGHT</option>
-                            <option value="TOP">TOP</option>
-                            <option value="BOTTOM">BOTTOM</option>
+                            <option value="horizontal">HORIZONTAL</option>
+                            <option value="vertical">VERTICAL</option>
+                            <option value="mirror-horizontal">MIRROR HORIZONTAL</option>
+                            <option value="mirror-vertical">MIRROR VERTICAL</option>
                         </select>
                     </div>
                 </div>
@@ -202,19 +198,19 @@
                 <div class="cover_edit_trim_box">
                     <p>Width</p>
                     <div class="format-container">
-                        <input type="number" class="cover_edit_trim_box_element" placeholder="0">
+                        <input type="number" id="trimWidth" class="cover_edit_trim_box_element" placeholder="0">
                     </div>
                     <p>Height</p>
                     <div class="format-container">
-                        <input type="number" class="cover_edit_trim_box_element" placeholder="0">
+                        <input type="number" id="trimHeight" class="cover_edit_trim_box_element" placeholder="0">
                     </div>
                     <p>PositionX </p>
                     <div class="format-container">
-                        <input type="number" class="cover_edit_trim_box_element" placeholder="0">
+                        <input type="number" id="trimPositionX" class="cover_edit_trim_box_element" placeholder="0">
                     </div>
                     <p>PositonY</p>
                     <div class="format-container">
-                        <input type="number" class="cover_edit_trim_box_element" placeholder="0">
+                        <input type="number" id="trimPositionY" class="cover_edit_trim_box_element" placeholder="0">
                     </div>
                 </div>
             </div>
@@ -246,7 +242,7 @@
                     </div>
                 </label>
                 <button type="submit" id="submit-button">CONVERT</button>
-            </form> 
+            </form>
             <div class="show_download">
                 <div class="show_download_title">
                     <h1>Conversion file !</h1>

@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 8080;
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const route = require('./routes/index.route');
 
@@ -11,9 +12,8 @@ app.use(morgan('combined'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(express.json());
 
-app.use(express.static(__dirname + "/"));
+app.use(express.static(path.join(__dirname,"/")));
 
 route(app);
 
