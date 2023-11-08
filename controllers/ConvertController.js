@@ -9,7 +9,7 @@ const jimp = require('jimp');
 console.log('Jimp module required');
 const multer = require('multer');
 const Jimp = require('jimp');
-console.log('Multer module required');
+const notifier = require('node-notifier');
 const { uploadCloudinary, setImgPath } = require("../controllers/CloudController");
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -99,6 +99,13 @@ class ConvertController {
             .then(() => {
                 setImgPath(outputPath);
                 uploadCloudinary(outputPath, format);
+            })
+            .then(() => {
+                // Hiển thị thông báo sau khi tất cả các tác vụ đã hoàn thành
+                notifier.notify({
+                    title: 'Covert',
+                    message: 'Ảnh của cậu đã được covert thành công !!! (❁´◡`❁)'
+                  });
             })
             .catch((err) => {
                 console.error(err);
