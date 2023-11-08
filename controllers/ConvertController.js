@@ -10,6 +10,8 @@ console.log('Jimp module required');
 const multer = require('multer');
 const Jimp = require('jimp');
 const notifier = require('node-notifier');
+const sharp = require("sharp");
+const { Rembg } = require("rembg-node");
 const { uploadCloudinary, setImgPath } = require("../controllers/CloudController");
 const { type } = require('os');
 
@@ -32,6 +34,17 @@ console.log('Multer storage configured');
 
 const upload = multer({ storage: storage });
 console.log('Upload configured');
+
+//hàm remove background
+async function removeBackground(filePath){
+    const input = sharp(filePath);
+    const rembg = new Rembg({
+        logging:true,
+    });
+    const output = await rembg.remove(input);
+    //ghi đè vào file ban đầu
+    await output.webp().toFile(filePath);
+}
 
 class ConvertController {
 
@@ -68,10 +81,25 @@ class ConvertController {
         console.log(`brightness: ${brightness}, type of invert ${typeof(invert)}`);
 
 
+        const brightness = req.body.brightness;
+        const contrast = req.body.contrast;
+        const opacity = req.body.opacity;
+        const greyscale = req.body.greyscale;
+        const invert = req.body.invert;
+        const blur = req.body.blur;
+        console.log(`brightness: ${brightness}, type of invert ${typeof(invert)}`);
+
+
+        //nhận tên và thay đổi tên
+        const rename = req.body.rename;
+        if(rename === undefined ){
+            const outputPath = path.join(__dirname, "..", "output", `${file.originalname}.${format}`);
+        }else{
+            const outputPath = path.join(__dirname, "..", "output", `${rename}.${format}`);
+        }
         // Đọc file ảnh từ đường dẫn tạm thời
         const tempPath = req.file.path;
         console.log(`Temp path: ${tempPath}`);
-        const outputPath = path.join(__dirname, "..", "output", `image.${format}`);
         Jimp.read(tempPath)
             .then((image) => {
                 image.quality(parseInt(quality)); // set JPEG quality
@@ -129,6 +157,8 @@ class ConvertController {
 }
 
 console.log('ConvertController class defined');
+
+
 
 module.exports = { upload, ConvertController: new ConvertController };
 console.log('Module exports defined');
