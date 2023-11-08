@@ -58,3 +58,40 @@
     background-color: #24c6c1;
     cursor: pointer;
 }
+.color_box{
+    flex-wrap: wrap;
+    height: fit-content !important;
+}
+    .color_box p{
+        margin-top: 10px;
+    }
+    .color_box .format_option_box:first-child p{
+        margin-top: 0px;
+    }
+    .color_box input{
+        width: 100%;
+    }
+    .input_range input{
+        width: 80%;
+        margin: 0px 10px;
+    }
+    .input_range{
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .button_box_color{
+        height: 80px;
+    }
+        .button_box_color p{
+            margin-top: 10px !important;
+        }
+.effect_box{
+    height: fit-content !important;
+}
+    .effect_box p{
+        margin-top: 10px;
+    }
+
+

@@ -78,3 +78,25 @@
 .hidden_box{
     display: flex !important;
 }
+
+
+/* nút Greyscale */
+.greyscale_button.active::before{
+    left: calc(100% - 28px - 1px);
+    background-color: #4070f4;
+}
+/* nút Invert */
+.invert_button.active::before{
+    left: calc(100% - 28px - 1px);
+    background-color: #4070f4;
+}
+/* nút Sepia */
+.sepia_button.active::before{
+    left: calc(100% - 28px - 1px);
+    background-color: #4070f4;
+}
+/* nút removebackground */
+.remove_background_button.active::before{
+    left: calc(100% - 28px - 1px);
+    background-color: #4070f4;
+}
