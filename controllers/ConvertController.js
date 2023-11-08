@@ -11,6 +11,7 @@ const multer = require('multer');
 const Jimp = require('jimp');
 const notifier = require('node-notifier');
 const { uploadCloudinary, setImgPath } = require("../controllers/CloudController");
+const { type } = require('os');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -58,6 +59,15 @@ class ConvertController {
         const trimPositionY = req.body.trimPositionY;
         console.log(`Trim Width: ${trimWidth}, Trim Height: ${trimHeight}, Trim Position X: ${trimPositionX}, Trim Position Y: ${trimPositionY}`);
 
+        const brightness = req.body.brightness;
+        const contrast = req.body.contrast;
+        const opacity = req.body.opacity;
+        const greyscale = req.body.greyscale;
+        const invert = req.body.invert;
+        const blur = req.body.blur;
+        console.log(`brightness: ${brightness}, type of invert ${typeof(invert)}`);
+
+
         // Đọc file ảnh từ đường dẫn tạm thời
         const tempPath = req.file.path;
         console.log(`Temp path: ${tempPath}`);
@@ -93,6 +103,9 @@ class ConvertController {
                 }
                 if (trimWidth !== undefined && trimHeight !== undefined && trimPositionX !== undefined && trimPositionY !== undefined) {
                     image.crop(parseInt(trimPositionX),parseInt(trimPositionY),parseInt(trimWidth), parseInt(trimHeight)); 
+                }
+                if (brightness !== undefined && contrast !== undefined && opacity !== undefined && greyscale !== undefined && invert !== undefined && blur !== undefined) {
+                    
                 }
                 return image.write(outputPath); // save
             })

@@ -43,8 +43,12 @@ async function removeBackground(filePath){
     });
     const output = await rembg.remove(input);
     //ghi đè vào file ban đầu
-    await output.jpeg().toFile(filePath);
+    await output.webp().toFile(filePath);
 }
+//test function
+// const testPath = path.join(__dirname, "rabbit.jpg");
+// removeBackground(testPath);
+
 //hàm lưu về đường dẫn tới file ảnh
 let imgPath;
 function setImgPath(filePath){
