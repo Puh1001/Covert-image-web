@@ -122,7 +122,7 @@ rmbBtn.addEventListener('click', () => toggleStates.down = !toggleStates.down);
 colorBtn.addEventListener('click', () => toggleStates.color = !toggleStates.color);
 effectBtn.addEventListener('click', () => toggleStates.effect = !toggleStates.effect);
 greyscale.addEventListener('click', () => toggleStates.greyscale = !toggleStates.greyscale);
-invertBtn.addEventListener('click', () => toggleStates.invert = !toggleStates.invert);
+invert.addEventListener('click', () => toggleStates.invert = !toggleStates.invert);
 
 // Kiểm tra trạng thái của nút toggle khi form được submit
 function uploadFile(file) {
