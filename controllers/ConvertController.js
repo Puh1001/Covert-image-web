@@ -168,6 +168,14 @@ class ConvertController {
                     title: 'Covert',
                     message: 'Ảnh của cậu đã được covert thành công !!! (❁´◡`❁)'
                 });
+                fs.unlink(tempPath, (err) => {
+                    if(err){
+                        console.log(err);
+                    }
+                    else{
+                        console.log("delete image in folder");
+                    }
+                })
             })
             .catch((err) => {
                 console.error(err);
