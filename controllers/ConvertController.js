@@ -105,7 +105,7 @@ class ConvertController {
                     image.crop(parseInt(trimPositionX),parseInt(trimPositionY),parseInt(trimWidth), parseInt(trimHeight)); 
                 }
                 if (brightness !== undefined && contrast !== undefined && opacity !== undefined && greyscale !== undefined && invert !== undefined && blur !== undefined) {
-                    
+                    image.brightness()
                 }
                 return image.write(outputPath); // save
             })

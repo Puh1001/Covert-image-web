@@ -119,3 +119,13 @@ effectBtn.addEventListener("click", () =>{
     }
 })
 effectBtn.addEventListener('click', () => effectBtn.classList.toggle('active'));
+
+// nút trong color
+var greyscale = document.querySelector(".greyscale_button");
+greyscale.addEventListener('click', () => greyscale.classList.toggle('active'));
+var invert = document.querySelector(".invert_button");
+invert.addEventListener('click', () => invert.classList.toggle('active'));
+
+// nút trong effect
+var sepia = document.querySelector(".sepia_button");
+sepia.addEventListener('click', () => sepia.classList.toggle('active'));

@@ -118,10 +118,10 @@ sizeBtn.addEventListener('click', () => toggleStates.size = !toggleStates.size);
 transBtn.addEventListener('click', () => toggleStates.trans = !toggleStates.trans);
 trimBtn.addEventListener('click', () => toggleStates.trim = !toggleStates.trim);
 renameBtn.addEventListener('click', () => toggleStates.rename = !toggleStates.rename);
-downBtn.addEventListener('click', () => toggleStates.down = !toggleStates.down);
+rmbBtn.addEventListener('click', () => toggleStates.down = !toggleStates.down);
 colorBtn.addEventListener('click', () => toggleStates.color = !toggleStates.color);
 effectBtn.addEventListener('click', () => toggleStates.effect = !toggleStates.effect);
-greyscaleBtn.addEventListener('click', () => toggleStates.greyscale = !toggleStates.greyscale);
+greyscale.addEventListener('click', () => toggleStates.greyscale = !toggleStates.greyscale);
 invertBtn.addEventListener('click', () => toggleStates.invert = !toggleStates.invert);
 
 // Kiểm tra trạng thái của nút toggle khi form được submit
