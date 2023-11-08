@@ -106,7 +106,7 @@ var toggleStates = {
   trans: false,
   trim: false,
   rename: false,
-  down: false,
+  rmb: false,
   color: false,
   effect: false,
   greyscale: false,
@@ -118,7 +118,7 @@ sizeBtn.addEventListener('click', () => toggleStates.size = !toggleStates.size);
 transBtn.addEventListener('click', () => toggleStates.trans = !toggleStates.trans);
 trimBtn.addEventListener('click', () => toggleStates.trim = !toggleStates.trim);
 renameBtn.addEventListener('click', () => toggleStates.rename = !toggleStates.rename);
-rmbBtn.addEventListener('click', () => toggleStates.down = !toggleStates.down);
+rmbBtn.addEventListener('click', () => toggleStates.rmb = !toggleStates.rmb);
 colorBtn.addEventListener('click', () => toggleStates.color = !toggleStates.color);
 effectBtn.addEventListener('click', () => toggleStates.effect = !toggleStates.effect);
 greyscale.addEventListener('click', () => toggleStates.greyscale = !toggleStates.greyscale);
@@ -142,6 +142,7 @@ function uploadFile(file) {
   var trimHeight = document.getElementById('trimHeight').value;
   var trimPositionX = document.getElementById('trimPositionX').value;
   var trimPositionY = document.getElementById('trimPositionY').value;
+  var name = document.getElementById('rename_edit').value;
 
   var brightness = document.getElementById('brightness').value;
   var contrast = document.getElementById('contrast').value;
@@ -149,6 +150,8 @@ function uploadFile(file) {
   var greyscale = toggleStates.greyscale;
   var invert = toggleStates.invert;
   var blur = document.getElementById('blur').value;
+
+  var rmb = toggleStates.rmb;
 
   var data = new FormData()
 
@@ -206,6 +209,13 @@ function uploadFile(file) {
     data.append('blur', blur);
   }
   
+  if (toggleStates.rename) {
+    data.append('rename', name);
+  }
+
+  if (toggleStates.rmb) {
+    data.append('rmb', rmb);
+  }
 
   fetch('/uploads', {
     method: 'POST',

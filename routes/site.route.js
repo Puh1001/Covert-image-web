@@ -6,6 +6,6 @@ const { upload, ConvertController } = require('../controllers/ConvertController.
 router.get('/', siteController.index);
 router.get('/dowload', siteController.download);
 router.post('/uploads', upload.single('file'),ConvertController.uploadImage);
-// router.post('/format', ConvertController.uploadImage);
+
 
 module.exports = router;

@@ -35,17 +35,6 @@ console.log('Multer storage configured');
 const upload = multer({ storage: storage });
 console.log('Upload configured');
 
-//hàm remove background
-async function removeBackground(filePath){
-    const input = sharp(filePath);
-    const rembg = new Rembg({
-        logging:true,
-    });
-    const output = await rembg.remove(input);
-    //ghi đè vào file ban đầu
-    await output.webp().toFile(filePath);
-}
-
 class ConvertController {
 
     async uploadImage(req, res) {
@@ -61,7 +50,7 @@ class ConvertController {
         const height = req.body.height;
         const scale = req.body.scale;
         console.log(`width: ${width}, height: ${height}, scale: ${scale}`);
-        
+
         const rotate = req.body.rotate;
         const flip = req.body.flip;
         console.log(`Rotate: ${rotate}, flip: ${flip}`);
@@ -78,19 +67,37 @@ class ConvertController {
         const greyscale = req.body.greyscale;
         const invert = req.body.invert;
         const blur = req.body.blur;
-        console.log(`brightness: ${brightness}, type of invert ${typeof(invert)}`);
+
+        const rmb = req.body.rmb;
+
+        console.log(`brightness: ${brightness}, type of invert ${typeof (invert)}`);
+        let outputPath = path.join(__dirname, "..", "output", `image.${format}`);
 
         //nhận tên và thay đổi tên
         const rename = req.body.rename;
-        if(rename === undefined ){
-            const outputPath = path.join(__dirname, "..", "output", `${file.originalname}.${format}`);
-        }else{
-            const outputPath = path.join(__dirname, "..", "output", `${rename}.${format}`);
+        if (rename !== undefined) {
+            outputPath = path.join(__dirname, "..", "output", `${rename}.${format}`);
         }
+
+        //hàm remove background
+        async function removeBackground(filePath) {
+            const input = sharp(filePath);
+            const rembg = new Rembg({
+                logging: true,
+            });
+            const output = await rembg.remove(input);
+            //ghi đè vào file ban đầu
+            await output.toFile(filePath);
+            return jimp.read(filePath);
+        }
+
         // Đọc file ảnh từ đường dẫn tạm thời
         const tempPath = req.file.path;
         console.log(`Temp path: ${tempPath}`);
-        Jimp.read(tempPath)
+        const filename = path.basename(tempPath);
+        console.log(Jimp.read(tempPath));
+        const imagePromise = (rmb !== undefined) ? removeBackground(path.join(__dirname, "..", "uploads", filename)) : Jimp.read(tempPath);
+        imagePromise
             .then((image) => {
                 image.quality(parseInt(quality)); // set JPEG quality
                 // Kiểm tra xem width và height có giá trị không
@@ -100,7 +107,7 @@ class ConvertController {
                 if (scale !== undefined || scale === '1') {
                     image.scale(parseInt(scale));
                 }
-                if (flip !== undefined || flip !== 'no'){
+                if (flip !== undefined || flip !== 'no') {
                     switch (flip) {
                         case 'horizontal':
                             image.flip(true, false);
@@ -116,11 +123,11 @@ class ConvertController {
                             break;
                     }
                 }
-                if (rotate !== undefined){
+                if (rotate !== undefined) {
                     image.rotate(parseInt(rotate, false));
                 }
                 if (trimWidth !== undefined && trimHeight !== undefined && trimPositionX !== undefined && trimPositionY !== undefined) {
-                    image.crop(parseInt(trimPositionX),parseInt(trimPositionY),parseInt(trimWidth), parseInt(trimHeight)); 
+                    image.crop(parseInt(trimPositionX), parseInt(trimPositionY), parseInt(trimWidth), parseInt(trimHeight));
                 }
                 if (brightness !== undefined && contrast !== undefined && opacity !== undefined && greyscale !== undefined && invert !== undefined && blur !== undefined) {
                     image.brightness()
@@ -136,7 +143,7 @@ class ConvertController {
                 notifier.notify({
                     title: 'Covert',
                     message: 'Ảnh của cậu đã được covert thành công !!! (❁´◡`❁)'
-                  });
+                });
             })
             .catch((err) => {
                 console.error(err);
