@@ -14,6 +14,8 @@ const sharp = require("sharp");
 const { Rembg } = require("rembg-node");
 const { uploadCloudinary, setImgPath } = require("../controllers/CloudController");
 const { type } = require('os');
+const Swal = require('sweetalert2');
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -164,15 +166,17 @@ class ConvertController {
             })
             .then(() => {
                 // Hiển thị thông báo sau khi tất cả các tác vụ đã hoàn thành
-                notifier.notify({
+                Swal.fire({
                     title: 'Covert',
-                    message: 'Ảnh của cậu đã được covert thành công !!! (❁´◡`❁)'
+                    text: 'Ảnh của cậu đã được covert thành công !!! (❁´◡`❁)',
+                    icon: 'success'
                 });
+
                 fs.unlink(tempPath, (err) => {
-                    if(err){
+                    if (err) {
                         console.log(err);
                     }
-                    else{
+                    else {
                         console.log("delete image in folder");
                     }
                 })
