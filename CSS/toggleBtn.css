@@ -54,11 +54,25 @@
 .rename-box.show{
     transform: scaleY(1);
 }
-.down-button.active::before{
+.remove_background.active::before{
     left: calc(100% - 28px - 1px);
     background-color: #4070f4;
 }
-.down-box.show{
+.remove_background_box.show{
+    transform: scaleY(1);
+}
+.Color_button.active::before{
+    left: calc(100% - 28px - 1px);
+    background-color: #4070f4;
+}
+.color_box.show{
+    transform: scaleY(1);
+}
+.effect_button.active::before{
+    left: calc(100% - 28px - 1px);
+    background-color: #4070f4;
+}
+.effect_box.show{
     transform: scaleY(1);
 }
 .hidden_box{
