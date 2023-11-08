@@ -110,7 +110,8 @@ var toggleStates = {
   color: false,
   effect: false,
   greyscale: false,
-  invert: false
+  invert: false,
+  sepia: false
 };
 
 // Cập nhật trạng thái của nút toggle khi nó được nhấn
@@ -123,6 +124,7 @@ colorBtn.addEventListener('click', () => toggleStates.color = !toggleStates.colo
 effectBtn.addEventListener('click', () => toggleStates.effect = !toggleStates.effect);
 greyscale.addEventListener('click', () => toggleStates.greyscale = !toggleStates.greyscale);
 invert.addEventListener('click', () => toggleStates.invert = !toggleStates.invert);
+sepia.addEventListener('click', () => toggleStates.sepia = !toggleStates.sepia);
 
 // Kiểm tra trạng thái của nút toggle khi form được submit
 function uploadFile(file) {
@@ -150,6 +152,9 @@ function uploadFile(file) {
   var greyscale = toggleStates.greyscale;
   var invert = toggleStates.invert;
   var blur = document.getElementById('blur').value;
+
+  var sepia = toggleStates.sepia;
+  var posterize = document.getElementById('posterize').value;
 
   var rmb = toggleStates.rmb;
 
@@ -215,6 +220,13 @@ function uploadFile(file) {
 
   if (toggleStates.rmb) {
     data.append('rmb', rmb);
+  }
+
+  if (toggleStates.effect) {
+    data.append('sepia', sepia);
+  }
+  if (toggleStates.effect) {
+    data.append('posterize', posterize);
   }
 
   fetch('/uploads', {

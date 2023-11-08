@@ -67,10 +67,14 @@ class ConvertController {
         const greyscale = req.body.greyscale;
         const invert = req.body.invert;
         const blur = req.body.blur;
+        console.log(`brightness: ${brightness}, type of invert ${typeof (invert)}, ${invert}, blur: ${blur}`);
+
+        const sepia = req.body.sepia;
+        const posterize = req.body.posterize;
+        console.log(`sepia: ${sepia} and type of sepia: ${typeof (sepia)}, posterize: ${posterize}`);
 
         const rmb = req.body.rmb;
 
-        console.log(`brightness: ${brightness}, type of invert ${typeof (invert)}`);
         let outputPath = path.join(__dirname, "..", "output", `image.${format}`);
 
         //nhận tên và thay đổi tên
@@ -99,8 +103,7 @@ class ConvertController {
         const imagePromise = (rmb !== undefined) ? removeBackground(path.join(__dirname, "..", "uploads", filename)) : Jimp.read(tempPath);
         imagePromise
             .then((image) => {
-                image.quality(parseInt(quality)); // set JPEG quality
-                // Kiểm tra xem width và height có giá trị không
+                image.quality(parseInt(quality));
                 if (width !== undefined && height !== undefined) {
                     image.resize(parseInt(width), parseInt(height)); // resize image
                 }
@@ -130,7 +133,28 @@ class ConvertController {
                     image.crop(parseInt(trimPositionX), parseInt(trimPositionY), parseInt(trimWidth), parseInt(trimHeight));
                 }
                 if (brightness !== undefined && contrast !== undefined && opacity !== undefined && greyscale !== undefined && invert !== undefined && blur !== undefined) {
-                    image.brightness()
+                    image.brightness(parseFloat(brightness));
+                    image.contrast(parseFloat(contrast));
+                    if (opacity !== '1') {
+                        image.opacity(parseFloat(opacity));
+                    }
+                    if (greyscale === 'true') {
+                        image.greyscale();
+                    }
+                    if (invert === 'true') {
+                        image.invert();
+                    }
+                    if (blur !== '0') {
+                        image.blur(parseInt(blur));
+                    }
+                }
+                if (sepia !== undefined && posterize !== undefined) {
+                    if (sepia === 'true') {
+                        image.sepia();
+                    }
+                    if (posterize !== "") {
+                        image.posterize(parseInt(posterize));
+                    }
                 }
                 return image.write(outputPath); // save
             })
