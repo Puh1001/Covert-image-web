@@ -106,7 +106,11 @@ var toggleStates = {
   trans: false,
   trim: false,
   rename: false,
-  down: false
+  down: false,
+  color: false,
+  effect: false,
+  greyscale: false,
+  invert: false
 };
 
 // Cập nhật trạng thái của nút toggle khi nó được nhấn
@@ -115,6 +119,10 @@ transBtn.addEventListener('click', () => toggleStates.trans = !toggleStates.tran
 trimBtn.addEventListener('click', () => toggleStates.trim = !toggleStates.trim);
 renameBtn.addEventListener('click', () => toggleStates.rename = !toggleStates.rename);
 downBtn.addEventListener('click', () => toggleStates.down = !toggleStates.down);
+colorBtn.addEventListener('click', () => toggleStates.color = !toggleStates.color);
+effectBtn.addEventListener('click', () => toggleStates.effect = !toggleStates.effect);
+greyscaleBtn.addEventListener('click', () => toggleStates.greyscale = !toggleStates.greyscale);
+invertBtn.addEventListener('click', () => toggleStates.invert = !toggleStates.invert);
 
 // Kiểm tra trạng thái của nút toggle khi form được submit
 function uploadFile(file) {
@@ -134,7 +142,13 @@ function uploadFile(file) {
   var trimHeight = document.getElementById('trimHeight').value;
   var trimPositionX = document.getElementById('trimPositionX').value;
   var trimPositionY = document.getElementById('trimPositionY').value;
-  var rename = document.getElementById("rename_edit").value
+
+  var brightness = document.getElementById('brightness').value;
+  var contrast = document.getElementById('contrast').value;
+  var opacity = document.getElementById('opacity').value;
+  var greyscale = toggleStates.greyscale;
+  var invert = toggleStates.invert;
+  var blur = document.getElementById('blur').value;
 
   var data = new FormData()
 
@@ -172,9 +186,26 @@ function uploadFile(file) {
   if (toggleStates.trim) {
     data.append('trimPositionY', trimPositionY);
   }
-  if (toggleStates.rename){
-    data.append("rename", rename);
+
+  if (toggleStates.color) {
+    data.append('brightness', brightness);
   }
+  if (toggleStates.color) {
+    data.append('contrast', contrast);
+  }
+  if (toggleStates.color) {
+    data.append('opacity', opacity);
+  }
+  if (toggleStates.color) {
+    data.append('greyscale', greyscale);
+  }
+  if (toggleStates.color) {
+    data.append('invert', invert);
+  }
+  if (toggleStates.color) {
+    data.append('blur', blur);
+  }
+  
 
   fetch('/uploads', {
     method: 'POST',
