@@ -1,7 +1,4 @@
 const cloudinary = require("cloudinary").v2;
-const sharp = require("sharp");
-const { Rembg } = require("rembg-node");
-
 const path = require("path");
 const fs = require("fs");
 
@@ -35,16 +32,6 @@ function deleteImage(filePath){
         }
     })
 }
-//hàm remove background
-async function removeBackground(filePath){
-    const input = sharp(filePath);
-    const rembg = new Rembg({
-        logging:true,
-    });
-    const output = await rembg.remove(input);
-    //ghi đè vào file ban đầu
-    await output.webp().toFile(filePath);
-}
 //test function
 // const testPath = path.join(__dirname, "rabbit.jpg");
 // removeBackground(testPath);
@@ -64,5 +51,4 @@ module.exports = {
     deleteImage,
     getImgPath,
     setImgPath,
-    removeBackground,
 }

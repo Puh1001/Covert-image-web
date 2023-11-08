@@ -134,7 +134,7 @@ function uploadFile(file) {
   var trimHeight = document.getElementById('trimHeight').value;
   var trimPositionX = document.getElementById('trimPositionX').value;
   var trimPositionY = document.getElementById('trimPositionY').value;
-
+  var rename = document.getElementById("rename_edit").value
 
   var data = new FormData()
 
@@ -171,6 +171,9 @@ function uploadFile(file) {
   }
   if (toggleStates.trim) {
     data.append('trimPositionY', trimPositionY);
+  }
+  if (toggleStates.rename){
+    data.append("rename", rename);
   }
 
   fetch('/uploads', {
