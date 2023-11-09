@@ -3,7 +3,6 @@
 function ekUpload() {
   function Init() {
 
-    console.log("Upload Initialised");
 
     var fileSelect = document.getElementById('file-upload'),
       fileDrag = document.getElementById('file-drag'),
@@ -21,7 +20,14 @@ function ekUpload() {
     // Submit button
     submitButton.addEventListener('click', function (e) {
       e.preventDefault();
-      uploadFile(fileSelect.files[0]);
+      var selectedFile = fileSelect.files[0];
+
+      if (selectedFile) {
+        uploadFile(selectedFile);
+      } else {
+        alert('Vui lòng chọn một hình ảnh để tải lên! (づ￣ 3￣)づ');
+        return;
+      }
     }, false);
   }
 
