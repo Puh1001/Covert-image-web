@@ -4,7 +4,7 @@
   "description": "A basic covert-image web",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon --inspect app.js",
+    "start": "npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
