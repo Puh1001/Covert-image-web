@@ -9,9 +9,10 @@ const jimp = require('jimp');
 console.log('Jimp module required');
 const multer = require('multer');
 const Jimp = require('jimp');
-const notifier = require('node-notifier');
 const sharp = require("sharp");
+console.log("Sharp module required");
 const { Rembg } = require("rembg-node");
+console.log('Rembg module required');
 const { uploadCloudinary, setImgPath } = require("../controllers/CloudController");
 const { type } = require('os');
 
